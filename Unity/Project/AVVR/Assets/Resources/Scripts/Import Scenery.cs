@@ -46,7 +46,7 @@ public class ImportScenery : MonoBehaviour
     static GameObject GetNewMesh()
     {
         // starts in default folder for pipeline output
-        string default_path = "C:/Project/AV-VR-Internship/edgenet360/Output";
+        string default_path = "C:/Project/AV-VR/edgenet360/Output";
         string replace_path = UnityEditor.EditorUtility.OpenFilePanel("Select scene mesh", default_path, "obj");
 
         // TODO check if string ends in .obj
