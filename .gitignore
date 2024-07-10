@@ -1,0 +1,42 @@
+# Ignore submodules
+edgenet360/
+edgenet360/weights/
+edgenet360/Data/stanford/
+edgenet360/Data/stanford/stanford_processed/
+
+# Useless large files
+code.zip
+AVVR-Papers/VR Demo.mp4
+
+# LFS large files
+Unity/Project/AVVR/Assets/Resources/Demo/KitchenLIDAR-SoundSource/Kitchen-Lidar-mesh-down-texture.obj
+Unity/Project/AVVR/Assets/Resources/Demo/KitchenLIDAR-SoundSource/Kitchen-Lidar-mesh-down-texture2.obj
+
+# misc
+UniWorkforce/
+scripts/enhancetest/
+
+
+# Unity temporary files
+Unity/Project/AVVR/[Ll]ibrary/**
+Unity/Project/AVVR/Library/ArtifactDB
+
+# Unity
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+
+# LFS files
+*.psd
+*.png
+*.jpg
+*.fbx
+*.mp4
+
+# Others
+.DS_Store
+Thumbs.db
