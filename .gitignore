@@ -12,6 +12,13 @@ AVVR-Papers/VR Demo.mp4
 Unity/Project/AVVR/Assets/Resources/Demo/KitchenLIDAR-SoundSource/Kitchen-Lidar-mesh-down-texture.obj
 Unity/Project/AVVR/Assets/Resources/Demo/KitchenLIDAR-SoundSource/Kitchen-Lidar-mesh-down-texture2.obj
 
+# LFS small files
+*.wav
+*.mp3
+*.mtl
+*.obj
+*.mat
+
 # misc
 UniWorkforce/
 scripts/enhancetest/
