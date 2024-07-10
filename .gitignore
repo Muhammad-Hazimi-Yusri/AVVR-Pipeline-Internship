@@ -8,16 +8,6 @@ edgenet360/Data/stanford/stanford_processed/
 code.zip
 AVVR-Papers/VR Demo.mp4
 
-# LFS large files
-Unity/Project/AVVR/Assets/Resources/Demo/KitchenLIDAR-SoundSource/Kitchen-Lidar-mesh-down-texture.obj
-Unity/Project/AVVR/Assets/Resources/Demo/KitchenLIDAR-SoundSource/Kitchen-Lidar-mesh-down-texture2.obj
-
-# LFS small files
-*.wav
-*.mp3
-*.mtl
-*.obj
-*.mat
 
 # misc
 UniWorkforce/
