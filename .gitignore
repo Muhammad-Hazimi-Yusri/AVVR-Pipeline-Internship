@@ -1,23 +1,11 @@
-# Ignore submodules
-edgenet360/
-edgenet360/weights/
-edgenet360/Data/stanford/
-edgenet360/Data/stanford/stanford_processed/
-
 # Useless large files
 code.zip
 AVVR-Papers/VR Demo.mp4
-
 
 # misc
 UniWorkforce/
 scripts/enhancetest/
 optional-module.pdf
-
-
-# Unity temporary files
-Unity/Project/AVVR/[Ll]ibrary/**
-Unity/Project/AVVR/Library/ArtifactDB
 
 # Unity
 [Ll]ibrary/
