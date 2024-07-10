@@ -1,0 +1,3 @@
+[submodule "360monodepth"]
+	path = 360monodepth
+	url = https://github.com/Muhammad-Hazimi-Yusri/360monodepth.git
