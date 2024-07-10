@@ -4,3 +4,6 @@
 [submodule "edgenet360"]
 	path = edgenet360
 	url = https://github.com/Muhammad-Hazimi-Yusri/Mesh-Generation.git
+[submodule "material_recognition/Dynamic-Backward-Attention-Transformer"]
+	path = material_recognition/Dynamic-Backward-Attention-Transformer
+	url = https://github.com/Muhammad-Hazimi-Yusri/Dynamic-Backward-Attention-Transformer.git
