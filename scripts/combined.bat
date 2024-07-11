@@ -8,7 +8,7 @@ set includeTop=%3
 set shiftImage=%4
 
 :: Directory structure
-set workingDir=C:/Project/AV-VR-Internship
+set workingDir=C:/Project/AVVR-Pipeline-Internship
 set scriptDir=%workingDir%/scripts
 set monoDepthDir=%scriptDir%/360monodepthexecution
 set outputDir=%workingDir%/edgenet360/Output

@@ -8,7 +8,7 @@ echo %room_area% %room_name% %cam_pos%
 
 
 ::Splitting 360 Image
-cd C:\Project\AV-VR-Internship\material_recognition\Dynamic-Backward-Attention-Transformer
+cd C:\Project\AVVR-Pipeline-Internship\material_recognition\Dynamic-Backward-Attention-Transformer
 
 call C:\Users\kproject\AppData\Local\anaconda3\condabin\activate.bat base
 
@@ -20,7 +20,7 @@ call C:\Users\kproject\AppData\Local\anaconda3\condabin\deactivate.bat
 ::Running Material Recognition
 call C:\Users\kproject\AppData\Local\anaconda3\condabin\activate.bat material
 
-python train_sota.py --data-root "./datasets" --batch-size 1 --tag dpglt --gpus 1 --num-nodes 1 --epochs 200 --mode 95 --seed 42 --test accuracy/epoch=126-valid_acc_epoch=0.87.ckpt --infer C:/Project/AV-VR-Internship/material_recognition/Dynamic-Backward-Attention-Transformer/split_output/
+python train_sota.py --data-root "./datasets" --batch-size 1 --tag dpglt --gpus 1 --num-nodes 1 --epochs 200 --mode 95 --seed 42 --test accuracy/epoch=126-valid_acc_epoch=0.87.ckpt --infer C:/Project/AVVR-Pipeline-Internship/material_recognition/Dynamic-Backward-Attention-Transformer/split_output/
 
 call C:\Users\kproject\AppData\Local\anaconda3\condabin\deactivate.bat 
 
@@ -35,11 +35,11 @@ call C:\Users\kproject\AppData\Local\anaconda3\condabin\deactivate.bat
 
 
 
-move C:\Project\AV-VR-Internship\edgenet360\Data\Input\material.png C:\Project\AV-VR-Internship\edgenet360\Data\stanford_processed
+move C:\Project\AVVR-Pipeline-Internship\edgenet360\Data\Input\material.png C:\Project\AVVR-Pipeline-Internship\edgenet360\Data\stanford_processed
 
 
 ::Change to Edgenet Directory
-cd C:/Project/AV-VR-Internship/edgenet360
+cd C:/Project/AVVR-Pipeline-Internship/edgenet360
 
 echo python infer360_stanford.py "%room_area%" "%room_name%" "%cam_pos%" material.png --base_path=./Data/stanford_processed
 
@@ -55,11 +55,11 @@ python replace.py
 
 call C:\Users\kproject\AppData\Local\anaconda3\condabin\deactivate.bat 
 
-cd C:\Project\AV-VR-Internship\scripts
+cd C:\Project\AVVR-Pipeline-Internship\scripts
 
 call C:\Users\kproject\AppData\Local\anaconda3\condabin\activate.bat unity
 
-python blenderFlip.py "C:\Project\AV-VR-Internship\edgenet360\Output\Input_prediction_mesh.obj"
+python blenderFlip.py "C:\Project\AVVR-Pipeline-Internship\edgenet360\Output\Input_prediction_mesh.obj"
 
 call C:\Users\kproject\AppData\Local\anaconda3\condabin\activate.bat unity
 

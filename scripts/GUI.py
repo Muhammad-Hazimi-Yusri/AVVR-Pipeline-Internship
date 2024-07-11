@@ -15,11 +15,11 @@ def shift_image_selection():
     # This function can be used if you want to perform any action when the checkbox is clicked
     pass
 
-# copy the intermediary output (depth_e.png, material.png, rgb.png from "C:\Project\AV-VR-Internship\edgenet360\Data\Input") 
-# to the output folder (C:\Project\AV-VR-Internship\edgenet360\Output)
+# copy the intermediary output (depth_e.png, material.png, rgb.png from "C:\Project\AVVR-Pipeline-Internship\edgenet360\Data\Input") 
+# to the output folder (C:\Project\AVVR-Pipeline-Internship\edgenet360\Output)
 def copy_intermediary_outputs():
-    source_folder = "C:\\Project\\AV-VR-Internship\\edgenet360\\Data\\Input"
-    destination_folder = "C:\\Project\\AV-VR-Internship\\edgenet360\\Output"
+    source_folder = "C:\\Project\\AVVR-Pipeline-Internship\\edgenet360\\Data\\Input"
+    destination_folder = "C:\\Project\\AVVR-Pipeline-Internship\\edgenet360\\Output"
     files_to_copy = ["depth_e.png", "enhanced_depth_e.png", "material.png", "rgb.png"]
     
     for file_name in files_to_copy:
@@ -95,7 +95,7 @@ def runProcess():
     shift_image_option = "y" if shift_image.get() == 1 else ""
     if checkStanford.get() == 0:
         p = subprocess.Popen(
-            ["C:/Project/AV-VR-Internship/scripts/combined.bat", file_path, str(check.get()), include_top_option, shift_image_option],
+            ["C:/Project/AVVR-Pipeline-Internship/scripts/combined.bat", file_path, str(check.get()), include_top_option, shift_image_option],
             stdout=sys.stdout)
         p.communicate()
 
@@ -112,7 +112,7 @@ def runProcess():
 
         print(room_area,room_name,camera_pos)
         p = subprocess.Popen( 
-                ["C:\Project\AV-VR-Internship\scripts\combined_stanford.bat", file_path,camera_pos,str(room_area),room_name],
+                ["C:\Project\AVVR-Pipeline-Internship\scripts\combined_stanford.bat", file_path,camera_pos,str(room_area),room_name],
                 stdout=sys.stdout)
         p.communicate()
 
