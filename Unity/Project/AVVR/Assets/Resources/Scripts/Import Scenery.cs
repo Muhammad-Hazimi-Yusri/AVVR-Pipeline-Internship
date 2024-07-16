@@ -55,11 +55,12 @@ public class ImportScenery : MonoBehaviour
     static GameObject GetNewMesh()
     {
         // starts in default folder for pipeline output        
-        // Get the project root directory (two levels up from Unity Project folder)
-        string projectRoot = Directory.GetParent(Directory.GetParent(Application.dataPath).FullName).FullName;
+        // Get the project root directory (4 levels up from Assets folder)
+        string projectRoot = Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetParent(Application.dataPath).FullName).FullName).FullName).FullName;
 
         // Combine paths to get the default path
         string default_path = Path.Combine(projectRoot, "edgenet360", "Output");
+        Debug.Log("Default path: " + default_path);
         string replace_path = UnityEditor.EditorUtility.OpenFilePanel("Select scene mesh", default_path, "obj");
 
         // TODO check if string ends in .obj
