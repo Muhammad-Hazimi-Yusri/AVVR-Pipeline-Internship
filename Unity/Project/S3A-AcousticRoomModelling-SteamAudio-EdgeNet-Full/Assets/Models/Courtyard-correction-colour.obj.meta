@@ -1,0 +1,204 @@
+fileFormatVersion: 2
+guid: e9e333b36d15ec641a0d954deaa925a2
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: _1
+    100002: Books_1
+    100004: Ceiling_1
+    100006: Chair_1
+    100008: Chair_2
+    100010: Chair_3
+    100012: Chair_4
+    100014: //RootNode
+    100016: Floor_1
+    100018: Furniture_1
+    100020: Furniture_2
+    100022: Objects_1
+    100024: Table_1
+    100026: Table_2
+    100028: Table_3
+    100030: Table_4
+    100032: Wall_1
+    100034: Wall_2
+    100036: Wall_3
+    100038: Wall_4
+    400000: _1
+    400002: Books_1
+    400004: Ceiling_1
+    400006: Chair_1
+    400008: Chair_2
+    400010: Chair_3
+    400012: Chair_4
+    400014: //RootNode
+    400016: Floor_1
+    400018: Furniture_1
+    400020: Furniture_2
+    400022: Objects_1
+    400024: Table_1
+    400026: Table_2
+    400028: Table_3
+    400030: Table_4
+    400032: Wall_1
+    400034: Wall_2
+    400036: Wall_3
+    400038: Wall_4
+    2100000: _1Mat
+    2100002: Books_1Mat
+    2100004: Ceiling_1Mat
+    2100006: Chair_1Mat
+    2100008: Chair_2Mat
+    2100010: Chair_3Mat
+    2100012: Chair_4Mat
+    2100014: Floor_1Mat
+    2100016: Furniture_1Mat
+    2100018: Furniture_2Mat
+    2100020: Objects_1Mat
+    2100022: Table_1Mat
+    2100024: Table_2Mat
+    2100026: Table_3Mat
+    2100028: Table_4Mat
+    2100030: Wall_1Mat
+    2100032: Wall_2Mat
+    2100034: Wall_3Mat
+    2100036: Wall_4Mat
+    2300000: _1
+    2300002: Books_1
+    2300004: Ceiling_1
+    2300006: Chair_1
+    2300008: Chair_2
+    2300010: Chair_3
+    2300012: Chair_4
+    2300014: Floor_1
+    2300016: Furniture_1
+    2300018: Furniture_2
+    2300020: Objects_1
+    2300022: Table_1
+    2300024: Table_2
+    2300026: Table_3
+    2300028: Table_4
+    2300030: Wall_1
+    2300032: Wall_2
+    2300034: Wall_3
+    2300036: Wall_4
+    3300000: _1
+    3300002: Books_1
+    3300004: Ceiling_1
+    3300006: Chair_1
+    3300008: Chair_2
+    3300010: Chair_3
+    3300012: Chair_4
+    3300014: Floor_1
+    3300016: Furniture_1
+    3300018: Furniture_2
+    3300020: Objects_1
+    3300022: Table_1
+    3300024: Table_2
+    3300026: Table_3
+    3300028: Table_4
+    3300030: Wall_1
+    3300032: Wall_2
+    3300034: Wall_3
+    3300036: Wall_4
+    4300000: _1
+    4300002: Books_1
+    4300004: Ceiling_1
+    4300006: Chair_1
+    4300008: Chair_2
+    4300010: Chair_3
+    4300012: Chair_4
+    4300014: Floor_1
+    4300016: Furniture_1
+    4300018: Furniture_2
+    4300020: Objects_1
+    4300022: Table_1
+    4300024: Table_2
+    4300026: Table_3
+    4300028: Table_4
+    4300030: Wall_1
+    4300032: Wall_2
+    4300034: Wall_3
+    4300036: Wall_4
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
