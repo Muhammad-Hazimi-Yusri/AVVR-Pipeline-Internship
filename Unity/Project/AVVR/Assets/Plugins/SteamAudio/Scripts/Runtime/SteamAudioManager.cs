@@ -1,6 +1,17 @@
 ﻿//
-// Copyright 2017 Valve Corporation. All rights reserved. Subject to the following license:
-// https://valvesoftware.github.io/steam-audio/license.html
+// Copyright 2017-2023 Valve Corporation.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 //
 
 using System;
@@ -34,6 +45,8 @@ namespace SteamAudio
     {
         [Header("HRTF Settings")]
         public int currentHRTF = 0;
+
+#if STEAMAUDIO_ENABLED
         public string[] hrtfNames = null;
 
         int mNumCPUCores = 0;
@@ -64,6 +77,8 @@ namespace SteamAudio
         bool mStopSimulationThread = false;
         bool mSimulationCompleted = false;
         float mSimulationUpdateTimeElapsed = 0.0f;
+        bool mSceneCommitRequired = false;
+        Camera mMainCamera;
 
         static SteamAudioManager sSingleton = null;
 
@@ -162,7 +177,7 @@ namespace SteamAudio
 
         public int NumThreadsForCPUCorePercentage(int percentage)
         {
-            return (int) Mathf.Max(1, (percentage * mNumCPUCores) / 100.0f);
+            return (int)Mathf.Max(1, (percentage * mNumCPUCores) / 100.0f);
         }
 
         public static SceneType GetSceneType()
@@ -192,25 +207,27 @@ namespace SteamAudio
 
         public static PerspectiveCorrection GetPerspectiveCorrection()
         {
-            PerspectiveCorrection correction;
-            if (Camera.main != null && Camera.main.aspect > .0f)
+            if (!SteamAudioSettings.Singleton.perspectiveCorrection)
+                return default;
+
+            var mainCamera = Singleton.GetMainCamera();
+            PerspectiveCorrection correction = default;
+            if (mainCamera != null && mainCamera.aspect > .0f)
             {
                 correction.enabled = SteamAudioSettings.Singleton.perspectiveCorrection ? Bool.True : Bool.False;
                 correction.xfactor = 1.0f * SteamAudioSettings.Singleton.perspectiveCorrectionFactor;
-                correction.yfactor = correction.xfactor / Camera.main.aspect;
+                correction.yfactor = correction.xfactor / mainCamera.aspect;
 
                 // Camera space matches OpenGL convention. No need to transform matrix to ConvertTransform.
-                correction.transform = Common.TransformMatrix(Camera.main.projectionMatrix * Camera.main.worldToCameraMatrix);
-            }
-            else
-            {
-                correction.enabled = Bool.False;
-                correction.xfactor = 1.0f;
-                correction.yfactor = 1.0f;
-                correction.transform = Common.TransformMatrix(UnityEngine.Matrix4x4.identity);
+                correction.transform = Common.TransformMatrix(mainCamera.projectionMatrix * mainCamera.worldToCameraMatrix);
             }
 
             return correction;
+        }
+
+        public Camera GetMainCamera()
+        {
+            return mMainCamera;
         }
 
         public static SimulationSettings GetSimulationSettings(bool baking)
@@ -295,8 +312,8 @@ namespace SteamAudio
                 {
                     if (SteamAudioSettings.Singleton.SOFAFiles[i])
                     {
-                        mHRTFs[i + 1] = new HRTF(mContext, mAudioSettings, 
-                            SteamAudioSettings.Singleton.SOFAFiles[i].sofaName, 
+                        mHRTFs[i + 1] = new HRTF(mContext, mAudioSettings,
+                            SteamAudioSettings.Singleton.SOFAFiles[i].sofaName,
                             SteamAudioSettings.Singleton.SOFAFiles[i].data,
                             SteamAudioSettings.Singleton.SOFAFiles[i].volume,
                             SteamAudioSettings.Singleton.SOFAFiles[i].normType);
@@ -360,7 +377,7 @@ namespace SteamAudio
 
                 if (SteamAudioSettings.Singleton.sceneType == SceneType.RadeonRays &&
                     !mOpenCLInitFailed)
-                { 
+                {
                     try
                     {
                         mRadeonRaysInitFailed = false;
@@ -422,7 +439,8 @@ namespace SteamAudio
 
 #if UNITY_EDITOR && UNITY_2019_3_OR_NEWER
                 // If the developer has disabled scene reload, SceneManager.sceneLoaded won't fire during initial load
-                if (EditorSettings.enterPlayModeOptions.HasFlag(EnterPlayModeOptions.DisableSceneReload))
+                if ( EditorSettings.enterPlayModeOptionsEnabled &&
+                    EditorSettings.enterPlayModeOptions.HasFlag(EnterPlayModeOptions.DisableSceneReload))
                 {
                     OnSceneLoaded(SceneManager.GetActiveScene(), LoadSceneMode.Single);
                 }
@@ -441,6 +459,7 @@ namespace SteamAudio
         {
             LoadScene(scene, mContext, additive: (loadSceneMode == LoadSceneMode.Additive));
 
+            NotifyMainCameraChanged();
             NotifyAudioListenerChanged();
         }
 
@@ -451,16 +470,37 @@ namespace SteamAudio
         }
 
         // Call this function when you create a new AudioListener component (or its equivalent, if you are using
-        // third-party audio middleware).
+        // third-party audio middleware). Use this function if you want Steam Audio to automatically find the new
+        // AudioListener.
         public static void NotifyAudioListenerChanged()
         {
-            sSingleton.mListener = AudioEngineStateHelpers.Create(SteamAudioSettings.Singleton.audioEngine).GetListenerTransform();
+            NotifyAudioListenerChangedTo(AudioEngineStateHelpers.Create(SteamAudioSettings.Singleton.audioEngine).GetListenerTransform());
+        }
+
+        // Call this function when you want to explicitly specify a new AudioListener component (or its equivalent, if
+        // you are using third-party audio middleware).
+        public static void NotifyAudioListenerChangedTo(Transform listenerTransform)
+        {
+            sSingleton.mListener = listenerTransform;
             if (sSingleton.mListener)
             {
                 sSingleton.mListenerComponent = sSingleton.mListener.GetComponent<SteamAudioListener>();
             }
         }
 
+        // Call this function when you create or change the main camera.
+        public static void NotifyMainCameraChanged()
+        {
+            sSingleton.mMainCamera = Camera.main;
+        }
+
+        // Call this function to request that changes to a scene be committed. Call only when changes have happened.
+        public static void ScheduleCommitScene()
+        {
+            sSingleton.mSceneCommitRequired = true;
+        }
+
+#if STEAMAUDIO_ENABLED
         private void LateUpdate()
         {
             if (mAudioEngineState == null)
@@ -476,7 +516,11 @@ namespace SteamAudio
 
             if (mSimulationThread.ThreadState == ThreadState.WaitSleepJoin)
             {
-                mCurrentScene.Commit();
+                if (mSceneCommitRequired)
+                {
+                    mCurrentScene.Commit();
+                    mSceneCommitRequired = false;
+                }
 
                 mSimulator.SetScene(mCurrentScene);
                 mSimulator.Commit();
@@ -572,6 +616,7 @@ namespace SteamAudio
                 }
             }
         }
+#endif
 
         void RunSimulationInternal()
         {
@@ -696,7 +741,7 @@ namespace SteamAudio
 
             UnityEngine.AudioSettings.Reset(UnityEngine.AudioSettings.GetConfiguration());
 
-            if ((sSingleton.mEmbreeDevice == null || sSingleton.mEmbreeDevice.Get() == IntPtr.Zero) 
+            if ((sSingleton.mEmbreeDevice == null || sSingleton.mEmbreeDevice.Get() == IntPtr.Zero)
                 && SteamAudioSettings.Singleton.sceneType == SceneType.Embree)
             {
                 try
@@ -859,7 +904,7 @@ namespace SteamAudio
             {
                 var scene = SceneManager.GetSceneAt(i);
 
-                EditorUtility.DisplayProgressBar("Steam Audio", string.Format("Exporting scene: {0}", scene.name), (float) i / (float) SceneManager.sceneCount);
+                EditorUtility.DisplayProgressBar("Steam Audio", string.Format("Exporting scene: {0}", scene.name), (float)i / (float)SceneManager.sceneCount);
 
                 if (!scene.isLoaded)
                 {
@@ -881,7 +926,7 @@ namespace SteamAudio
             {
                 var scene = SceneManager.GetSceneByBuildIndex(i);
 
-                EditorUtility.DisplayProgressBar("Steam Audio", string.Format("Exporting scene: {0}", scene.name), (float) i / (float) SceneManager.sceneCountInBuildSettings);
+                EditorUtility.DisplayProgressBar("Steam Audio", string.Format("Exporting scene: {0}", scene.name), (float)i / (float)SceneManager.sceneCountInBuildSettings);
 
                 var shouldClose = false;
                 if (!scene.isLoaded)
@@ -921,7 +966,7 @@ namespace SteamAudio
             {
                 var scene = SceneManager.GetSceneAt(i);
 
-                EditorUtility.DisplayProgressBar("Steam Audio", string.Format("Exporting dynamic objects in scene: {0}", scene.name), (float) i / (float) SceneManager.sceneCount);
+                EditorUtility.DisplayProgressBar("Steam Audio", string.Format("Exporting dynamic objects in scene: {0}", scene.name), (float)i / (float)SceneManager.sceneCount);
 
                 if (!scene.isLoaded)
                 {
@@ -943,7 +988,7 @@ namespace SteamAudio
             {
                 var scene = SceneManager.GetSceneByBuildIndex(i);
 
-                EditorUtility.DisplayProgressBar("Steam Audio", string.Format("Exporting dynamic objects in scene: {0}", scene.name), (float) i / (float) SceneManager.sceneCountInBuildSettings);
+                EditorUtility.DisplayProgressBar("Steam Audio", string.Format("Exporting dynamic objects in scene: {0}", scene.name), (float)i / (float)SceneManager.sceneCountInBuildSettings);
 
                 var shouldClose = false;
                 if (!scene.isLoaded)
@@ -973,17 +1018,17 @@ namespace SteamAudio
             var numItems = scenes.Length + prefabs.Length;
 
             var index = 0;
-            foreach (var sceneGUID in scenes) 
+            foreach (var sceneGUID in scenes)
             {
                 var scenePath = AssetDatabase.GUIDToAssetPath(sceneGUID);
 
-                EditorUtility.DisplayProgressBar("Steam Audio", string.Format("Exporting dynamic objects in scene: {0}", scenePath), (float) index / (float) numItems);
+                EditorUtility.DisplayProgressBar("Steam Audio", string.Format("Exporting dynamic objects in scene: {0}", scenePath), (float)index / (float)numItems);
 
                 var activeScene = EditorSceneManager.GetActiveScene();
                 var isLoadedScene = (scenePath == activeScene.path);
 
                 var scene = activeScene;
-                if (!isLoadedScene) 
+                if (!isLoadedScene)
                 {
 #if UNITY_2019_2_OR_NEWER
                     var packageInfo = UnityEditor.PackageManager.PackageInfo.FindForAssetPath(scenePath);
@@ -999,7 +1044,7 @@ namespace SteamAudio
 
                 ExportDynamicObjectsInArray(GetDynamicObjectsInScene(scene));
 
-                if (!isLoadedScene) 
+                if (!isLoadedScene)
                 {
                     EditorSceneManager.CloseScene(scene, true);
                 }
@@ -1007,11 +1052,11 @@ namespace SteamAudio
                 ++index;
             }
 
-            foreach (var prefabGUID in prefabs) 
+            foreach (var prefabGUID in prefabs)
             {
                 var prefabPath = AssetDatabase.GUIDToAssetPath(prefabGUID);
 
-                EditorUtility.DisplayProgressBar("Steam Audio", string.Format("Exporting dynamic objects in prefab: {0}", prefabPath), (float) index / (float) numItems);
+                EditorUtility.DisplayProgressBar("Steam Audio", string.Format("Exporting dynamic objects in prefab: {0}", prefabPath), (float)index / (float)numItems);
 
                 var prefab = AssetDatabase.LoadMainAssetAtPath(prefabPath) as GameObject;
                 var dynamicObjects = prefab.GetComponentsInChildren<SteamAudioDynamicObject>();
@@ -1043,7 +1088,7 @@ namespace SteamAudio
             var FMODUnity_Settings_Instance = FMODUnity_Settings.GetProperty("Instance");
             var FMODUnity_Settings_CurrentVersion = FMODUnity_Settings.GetField("CurrentVersion");
             var fmodSettings = FMODUnity_Settings_Instance.GetValue(null, null);
-            var fmodVersion = (int) FMODUnity_Settings_CurrentVersion.GetValue(fmodSettings);
+            var fmodVersion = (int)FMODUnity_Settings_CurrentVersion.GetValue(fmodSettings);
             var fmodVersionMajor = (fmodVersion & 0x00ff0000) >> 16;
             var fmodVersionMinor = (fmodVersion & 0x0000ff00) >> 8;
             var fmodVersionPatch = (fmodVersion & 0x000000ff);
@@ -1103,7 +1148,7 @@ namespace SteamAudio
 
                     moveSucceeded = MoveAssets(moves);
                 }
-            } 
+            }
             else
             {
                 EditorUtility.DisplayDialog("Steam Audio",
@@ -1251,7 +1296,7 @@ namespace SteamAudio
         }
 
         // Loads a dynamic object as an instanced mesh. Multiple dynamic objects loaded from the same file
-        // will share the underlying geometry and material data (using a reference count). The instanced meshes 
+        // will share the underlying geometry and material data (using a reference count). The instanced meshes
         // allow each dynamic object to have its own transform.
         public static InstancedMesh LoadDynamicObject(SteamAudioDynamicObject dynamicObject, Scene parentScene, Context context)
         {
@@ -1378,7 +1423,7 @@ namespace SteamAudio
 
                 var w = terrain.terrainData.heightmapResolution;
                 var h = terrain.terrainData.heightmapResolution;
-                var s = Mathf.Min(w - 1, Mathf.Min(h - 1, (int) Mathf.Pow(2.0f, terrainSimplificationLevel)));
+                var s = Mathf.Min(w - 1, Mathf.Min(h - 1, (int)Mathf.Pow(2.0f, terrainSimplificationLevel)));
 
                 if (s == 0)
                 {
@@ -1412,7 +1457,7 @@ namespace SteamAudio
 
                 var w = terrain.terrainData.heightmapResolution;
                 var h = terrain.terrainData.heightmapResolution;
-                var s = Mathf.Min(w - 1, Mathf.Min(h - 1, (int) Mathf.Pow(2.0f, terrainSimplificationLevel)));
+                var s = Mathf.Min(w - 1, Mathf.Min(h - 1, (int)Mathf.Pow(2.0f, terrainSimplificationLevel)));
 
                 if (s == 0)
                 {
@@ -1471,7 +1516,7 @@ namespace SteamAudio
 
             var numHits = Physics.RaycastNonAlloc(origin, direction, sSingleton.mRayHits, maxDistance, layerMask);
 
-            occluded = (byte) ((numHits > 0) ? 1 : 0);
+            occluded = (byte)((numHits > 0) ? 1 : 0);
         }
 
         // This method is called as soon as scripts are loaded, which happens whenever play mode is started
@@ -1551,7 +1596,7 @@ namespace SteamAudio
         {
             var sceneType = GetSceneType();
 
-            var scene = new Scene(context, sceneType, sSingleton.mEmbreeDevice, sSingleton.mRadeonRaysDevice, 
+            var scene = new Scene(context, sceneType, sSingleton.mEmbreeDevice, sSingleton.mRadeonRaysDevice,
                 ClosestHit, AnyHit);
 
             if (sceneType == SceneType.Custom)
@@ -1656,7 +1701,7 @@ namespace SteamAudio
         static bool IsDynamicSubObject(GameObject root, GameObject obj)
         {
             return (root.GetComponentInParent<SteamAudioDynamicObject>() !=
-                    obj.GetComponentInParent<SteamAudioDynamicObject>());
+                obj.GetComponentInParent<SteamAudioDynamicObject>());
         }
 
         // Ideally, we want to use GameObject.activeInHierarchy to check if a GameObject is active. However, when
@@ -1766,7 +1811,7 @@ namespace SteamAudio
 
                 var w = terrain.terrainData.heightmapResolution;
                 var h = terrain.terrainData.heightmapResolution;
-                var s = Mathf.Min(w - 1, Mathf.Min(h - 1, (int) Mathf.Pow(2.0f, terrainSimplificationLevel)));
+                var s = Mathf.Min(w - 1, Mathf.Min(h - 1, (int)Mathf.Pow(2.0f, terrainSimplificationLevel)));
                 if (s == 0)
                 {
                     s = 1;
@@ -1775,7 +1820,6 @@ namespace SteamAudio
                 w = ((w - 1) / s) + 1;
                 h = ((h - 1) / s) + 1;
 
-                var position = terrain.transform.position;
                 var heights = terrain.terrainData.GetHeights(0, 0, terrain.terrainData.heightmapResolution,
                     terrain.terrainData.heightmapResolution);
 
@@ -1786,9 +1830,9 @@ namespace SteamAudio
                     {
                         var height = heights[v, u];
 
-                        var x = position.x + (((float) u / terrain.terrainData.heightmapResolution) * terrain.terrainData.size.x);
-                        var y = position.y + (height * terrain.terrainData.size.y);
-                        var z = position.z + (((float) v / terrain.terrainData.heightmapResolution) * terrain.terrainData.size.z);
+                        var x = ((float) u / terrain.terrainData.heightmapResolution) * terrain.terrainData.size.x;
+                        var y = height * terrain.terrainData.size.y;
+                        var z = ((float) v / terrain.terrainData.heightmapResolution) * terrain.terrainData.size.z;
 
                         var vertex = new UnityEngine.Vector3 { x = x, y = y, z = z };
                         var transformedVertex = terrain.transform.TransformPoint(vertex);
@@ -1825,7 +1869,7 @@ namespace SteamAudio
 
                 var w = terrain.terrainData.heightmapResolution;
                 var h = terrain.terrainData.heightmapResolution;
-                var s = Mathf.Min(w - 1, Mathf.Min(h - 1, (int) Mathf.Pow(2.0f, terrainSimplificationLevel)));
+                var s = Mathf.Min(w - 1, Mathf.Min(h - 1, (int)Mathf.Pow(2.0f, terrainSimplificationLevel)));
                 if (s == 0)
                 {
                     s = 1;
@@ -2010,5 +2054,6 @@ namespace SteamAudio
         {
             return dynamicObject.asset;
         }
+#endif
     }
 }
