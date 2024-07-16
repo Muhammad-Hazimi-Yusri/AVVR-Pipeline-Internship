@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using Dummiesman;
 using UnityEditor.SceneManagement;
@@ -10,8 +11,16 @@ public class ImportScenery : MonoBehaviour
     [UnityEditor.MenuItem("AVVR/Import Scene")]
     public static void PerformImport()
     {
-        // hide demo lidar overlay
-        LoadDemo.ShowLIDAR(false);
+        try
+        {
+            // hide demo lidar overlay
+            LoadDemo.ShowLIDAR(false);
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogWarning("Failed to hide LIDAR: " + e.Message);
+        }
+
         // call get new mesh to obtain obj file, then perform import automation
         ImportScene(GetNewMesh());
     }
@@ -45,8 +54,12 @@ public class ImportScenery : MonoBehaviour
     // gets new obj from file system
     static GameObject GetNewMesh()
     {
-        // starts in default folder for pipeline output
-        string default_path = "C:/Project/AV-VR/edgenet360/Output";
+        // starts in default folder for pipeline output        
+        // Get the project root directory (two levels up from Unity Project folder)
+        string projectRoot = Directory.GetParent(Directory.GetParent(Application.dataPath).FullName).FullName;
+
+        // Combine paths to get the default path
+        string default_path = Path.Combine(projectRoot, "edgenet360", "Output");
         string replace_path = UnityEditor.EditorUtility.OpenFilePanel("Select scene mesh", default_path, "obj");
 
         // TODO check if string ends in .obj

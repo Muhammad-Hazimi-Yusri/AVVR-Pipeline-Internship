@@ -17,7 +17,15 @@ public class LoadDemo : MonoBehaviour
     // show lidar overlay mesh
     public static void ShowLIDAR(bool on)
     {
-        GameObject.Find("KitchenDemoScene").transform.GetChild(0).gameObject.SetActive(on);
+        GameObject kitchenDemoScene = GameObject.Find("KitchenDemoScene");
+        if (kitchenDemoScene != null && kitchenDemoScene.transform.childCount > 0)
+        {
+            kitchenDemoScene.transform.GetChild(0).gameObject.SetActive(on);
+        }
+        else
+        {
+            Debug.LogWarning("KitchenDemoScene not found or has no children. Unable to show/hide LIDAR.");
+        }
     }
 
     // get specific kitchen output mesh from resources folder
