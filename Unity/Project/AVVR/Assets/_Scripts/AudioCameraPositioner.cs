@@ -97,20 +97,52 @@ public class AudioCameraPositioner : MonoBehaviour
             return;
         }
 
-        CalculateRoomDimensions();
+        // Step 1: Reset to origin
+        modelWrapper.transform.position = Vector3.zero;
+        modelWrapper.transform.rotation = Quaternion.identity;
 
-        // First, rotate the mesh
+        // Step 2: Calculate initial dimensions using mesh vertices
+        Vector3 minPoint, maxPoint;
+        CalculateMeshDimensions(out minPoint, out maxPoint);
+
+        // Step 3: Rotate based on corner index
         Quaternion rotation = Quaternion.Euler(0, 90 * cornerIndex, 0);
         modelWrapper.transform.rotation = rotation;
 
-        // Recalculate dimensions after rotation
-        CalculateRoomDimensions();
+        // Step 4: Recalculate dimensions after rotation
+        CalculateMeshDimensions(out minPoint, out maxPoint);
 
-        // Now, move the corner to (0, 0, 0)
-        Vector3 translation = -roomMinPoint;
-        modelWrapper.transform.position += translation;
+        // Step 5: Move the most negative corner to origin
+        Vector3 translation = -minPoint;
+        modelWrapper.transform.position = translation;
 
         Debug.Log($"Room aligned to corner {cornerIndex}. Position: {modelWrapper.transform.position}, Rotation: {modelWrapper.transform.rotation.eulerAngles}");
+    }
+
+    private void CalculateMeshDimensions(out Vector3 minPoint, out Vector3 maxPoint)
+    {
+        minPoint = Vector3.positiveInfinity;
+        maxPoint = Vector3.negativeInfinity;
+
+        MeshFilter[] meshFilters = modelWrapper.GetComponentsInChildren<MeshFilter>();
+        foreach (MeshFilter mf in meshFilters)
+        {
+            Vector3[] vertices = mf.sharedMesh.vertices;
+            for (int i = 0; i < vertices.Length; i++)
+            {
+                Vector3 worldVertex = mf.transform.TransformPoint(vertices[i]);
+                minPoint = Vector3.Min(minPoint, worldVertex);
+                maxPoint = Vector3.Max(maxPoint, worldVertex);
+            }
+        }
+
+        roomSize = maxPoint - minPoint;
+        roomCenter = (minPoint + maxPoint) / 2;
+        roomMinPoint = minPoint;
+
+        Debug.Log($"Room size: {roomSize}");
+        Debug.Log($"Room center: {roomCenter}");
+        Debug.Log($"Room min point: {roomMinPoint}");
     }
 }
 
