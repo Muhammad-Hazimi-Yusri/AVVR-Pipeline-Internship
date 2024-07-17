@@ -24,7 +24,6 @@ public class AudioCameraPositioner : MonoBehaviour
     private Vector3 roomCenter;
     private Vector3 roomMinPoint;
 
-
     public void PositionCamera()
     {
         if (mainCamera == null)
@@ -56,37 +55,6 @@ public class AudioCameraPositioner : MonoBehaviour
     {
         PositionCamera();
         PositionAudioSources();
-    }
-
-    public void CalculateRoomDimensions()
-    {
-        if (modelWrapper == null)
-        {
-            Debug.LogError("ModelWrapper is not assigned!");
-            return;
-        }
-
-        Bounds bounds = new Bounds(modelWrapper.transform.position, Vector3.zero);
-        Renderer[] renderers = modelWrapper.GetComponentsInChildren<Renderer>();
-        
-        if (renderers.Length == 0)
-        {
-            Debug.LogError("No Renderer components found in the ModelWrapper's children!");
-            return;
-        }
-
-        foreach (Renderer renderer in renderers)
-        {
-            bounds.Encapsulate(renderer.bounds);
-        }
-
-        roomSize = bounds.size;
-        roomCenter = bounds.center;
-        roomMinPoint = bounds.min;
-
-        Debug.Log($"Room size: {roomSize}");
-        Debug.Log($"Room center: {roomCenter}");
-        Debug.Log($"Room min point: {roomMinPoint}");
     }
 
     public void AlignRoomCorner(int cornerIndex)
