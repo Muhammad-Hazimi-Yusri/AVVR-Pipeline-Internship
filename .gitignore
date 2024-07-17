@@ -18,8 +18,8 @@ optional-module.pdf
 
 # LFS files
 *.psd
-*.png
-*.jpg
+#*.png
+#*.jpg
 *.fbx
 *.mp4
 
