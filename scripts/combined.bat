@@ -96,7 +96,7 @@ echo Running EdgeNet...
 pushd "%edgeNetDir%"
 set "includeTopFlag="
 if /I "%includeTop%"=="y" set "includeTopFlag=--include_top y"
-wsl bash -c "source /home/kproject/anaconda3/bin/activate tf2 && python enhance360mono.py Input depth_e.png enhanced_depth_e.png && python infer360.py Input enhanced_depth_e.png material.png rgb.png Input %includeTopFlag%"
+wsl bash -c "source /home/kproject/anaconda3/bin/activate tf2 && python enhance360.py --baseline 2.264 Input depth_e.png rgb.png enhanced_depth_e.png && python infer360.py Input enhanced_depth_e.png material.png rgb.png Input %includeTopFlag%"
 wsl bash -c "source /home/kproject/anaconda3/bin/deactivate"
 popd
 
