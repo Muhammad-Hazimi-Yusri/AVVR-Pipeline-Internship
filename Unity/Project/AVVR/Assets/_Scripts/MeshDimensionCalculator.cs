@@ -12,6 +12,8 @@ public class MeshDimensionCalculator : MonoBehaviour
     private Vector3 dimensions;
     private Vector3 center;
 
+    [SerializeField] private Vector3 scaleFactors = Vector3.one;
+    [SerializeField] private float uniformScaleFactor = 1f;
     public void CalculateDimensions()
     {
         if (targetObject == null)
@@ -98,15 +100,74 @@ public class MeshDimensionCalculator : MonoBehaviour
         targetObject.transform.position = new Vector3(currentPosition.x, -totalMin.y, currentPosition.z);
         Debug.Log($"Target object floor has been reset to Y = 0. New position: {targetObject.transform.position}");
     }
+
+    public void ScaleObject()
+    {
+        if (targetObject == null)
+        {
+            Debug.LogError("Target object is not assigned!");
+            return;
+        }
+
+        Vector3 currentScale = targetObject.transform.localScale;
+        Vector3 newScale = new Vector3(
+            currentScale.x * scaleFactors.x,
+            currentScale.y * scaleFactors.y,
+            currentScale.z * scaleFactors.z
+        );
+
+        targetObject.transform.localScale = newScale;
+        Debug.Log($"Target object scaled. New scale: {newScale}");
+    }
+
+    public void ScaleObjectUniform()
+    {
+        if (targetObject == null)
+        {
+            Debug.LogError("Target object is not assigned!");
+            return;
+        }
+
+        Vector3 currentScale = targetObject.transform.localScale;
+        Vector3 newScale = currentScale * uniformScaleFactor;
+
+        targetObject.transform.localScale = newScale;
+        Debug.Log($"Target object scaled uniformly. New scale: {newScale}");
+    }
+
+    public void ResetScale()
+    {
+        if (targetObject == null)
+        {
+            Debug.LogError("Target object is not assigned!");
+            return;
+        }
+
+        targetObject.transform.localScale = Vector3.one;
+        Debug.Log("Target object scale has been reset to (1, 1, 1).");
+    }
 }
 
 #if UNITY_EDITOR
 [CustomEditor(typeof(MeshDimensionCalculator))]
 public class MeshDimensionCalculatorEditor : Editor
 {
+    SerializedProperty targetObjectProperty;
+    SerializedProperty scaleFactorsProperty;
+    SerializedProperty uniformScaleFactorProperty;
+
+    private void OnEnable()
+    {
+        targetObjectProperty = serializedObject.FindProperty("targetObject");
+        scaleFactorsProperty = serializedObject.FindProperty("scaleFactors");
+        uniformScaleFactorProperty = serializedObject.FindProperty("uniformScaleFactor");
+    }
+
     public override void OnInspectorGUI()
     {
-        DrawDefaultInspector();
+        serializedObject.Update();
+
+        EditorGUILayout.PropertyField(targetObjectProperty);
 
         MeshDimensionCalculator calculator = (MeshDimensionCalculator)target;
 
@@ -124,6 +185,32 @@ public class MeshDimensionCalculatorEditor : Editor
         {
             calculator.ResetFloorToZero();
         }
+
+        EditorGUILayout.Space();
+        EditorGUILayout.LabelField("Scaling Options", EditorStyles.boldLabel);
+
+        EditorGUILayout.PropertyField(scaleFactorsProperty, new GUIContent("Scale Factors (X, Y, Z)"));
+        if (GUILayout.Button("Apply Scale (X, Y, Z)"))
+        {
+            calculator.ScaleObject();
+        }
+
+        EditorGUILayout.Space();
+
+        EditorGUILayout.PropertyField(uniformScaleFactorProperty, new GUIContent("Uniform Scale Factor"));
+        if (GUILayout.Button("Apply Uniform Scale"))
+        {
+            calculator.ScaleObjectUniform();
+        }
+
+        EditorGUILayout.Space();
+
+        if (GUILayout.Button("Reset Scale to (1, 1, 1)"))
+        {
+            calculator.ResetScale();
+        }
+
+        serializedObject.ApplyModifiedProperties();
     }
 }
 #endif
