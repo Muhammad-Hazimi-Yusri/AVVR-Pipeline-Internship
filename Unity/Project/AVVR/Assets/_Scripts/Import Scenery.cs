@@ -5,6 +5,7 @@ using UnityEngine;
 using Dummiesman;
 using UnityEditor.SceneManagement;
 
+
 [ExecuteInEditMode]
 public class ImportScenery : MonoBehaviour
 {
@@ -43,12 +44,70 @@ public class ImportScenery : MonoBehaviour
 
             // initialise steam materials for model meshes and export steam geometry
             InitialiseMesh(AVVRScene);
-            // add to wrapper for deletion on next import
-            AVVRScene.transform.parent = new GameObject("ModelWrapper").transform;
+            
+            // Create new ModelWrapper
+            GameObject modelWrapper = new GameObject("ModelWrapper");
+            
+            // Add MeshRenderer to ModelWrapper
+            MeshRenderer meshRenderer = modelWrapper.AddComponent<MeshRenderer>();
+            
+            // Add custom script for dimension viewing
+            modelWrapper.AddComponent<ModelDimensionsViewer>();
+            
+            // Set AVVRScene as child of ModelWrapper
+            AVVRScene.transform.SetParent(modelWrapper.transform, false);
+
+            // Update ModelWrapper's MeshRenderer bounds to encapsulate all children
+            UpdateModelWrapperBounds(modelWrapper);
 
             // resize locomotion area to new scene
-            GameObject.Find("LocomotionArea").GetComponent<ResizeLocomotionArea>().Resize();
+            GameObject locomotionArea = GameObject.Find("LocomotionArea");
+            if (locomotionArea != null)
+            {
+                ResizeLocomotionArea resizeScript = locomotionArea.GetComponent<ResizeLocomotionArea>();
+                if (resizeScript != null)
+                {
+                    resizeScript.Resize();
+                }
+                else
+                {
+                    Debug.LogWarning("ResizeLocomotionArea script not found on LocomotionArea.");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("LocomotionArea not found in the scene.");
+            }
+
+            Debug.Log($"ModelWrapper dimensions: {meshRenderer.bounds.size}");
         }
+    }
+
+    // Update ModelWrapper's MeshRenderer bounds
+    private static void UpdateModelWrapperBounds(GameObject modelWrapper)
+    {
+        MeshRenderer wrapperRenderer = modelWrapper.GetComponent<MeshRenderer>();
+        Bounds bounds = new Bounds(Vector3.zero, Vector3.zero);
+        bool boundsInitialized = false;
+
+        // Collect all child renderers
+        Renderer[] renderers = modelWrapper.GetComponentsInChildren<Renderer>();
+
+        foreach (Renderer renderer in renderers)
+        {
+            if (!boundsInitialized)
+            {
+                bounds = renderer.bounds;
+                boundsInitialized = true;
+            }
+            else
+            {
+                bounds.Encapsulate(renderer.bounds);
+            }
+        }
+
+        // Set the ModelWrapper's MeshRenderer bounds
+        wrapperRenderer.bounds = bounds;
     }
 
     // gets new obj from file system
