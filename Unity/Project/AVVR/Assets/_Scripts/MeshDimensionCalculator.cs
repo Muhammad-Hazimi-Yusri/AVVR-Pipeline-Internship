@@ -6,7 +6,7 @@ using UnityEditor;
 
 public class MeshDimensionCalculator : MonoBehaviour
 {
-    public GameObject modelWrapper;
+    public GameObject targetObject;
     private Vector3 totalMin = Vector3.positiveInfinity;
     private Vector3 totalMax = Vector3.negativeInfinity;
     private Vector3 dimensions;
@@ -14,34 +14,22 @@ public class MeshDimensionCalculator : MonoBehaviour
 
     public void CalculateDimensions()
     {
-        if (modelWrapper == null)
+        if (targetObject == null)
         {
-            Debug.LogError("ModelWrapper is not assigned!");
+            Debug.LogError("Target object is not assigned!");
             return;
         }
 
         totalMin = Vector3.positiveInfinity;
         totalMax = Vector3.negativeInfinity;
 
-        Transform finalOutputSceneMesh = modelWrapper.transform.Find("final_output_scene_mesh");
-        if (finalOutputSceneMesh == null)
-        {
-            Debug.LogError("final_output_scene_mesh not found!");
-            return;
-        }
-
         List<MeshFilter> meshFilters = new List<MeshFilter>();
-        for (int i = 0; i < finalOutputSceneMesh.childCount; i++)
+        CollectMeshFilters(targetObject.transform, meshFilters);
+
+        if (meshFilters.Count == 0)
         {
-            Transform child = finalOutputSceneMesh.GetChild(i);
-            if (child.name.StartsWith("Input_prediction_mesh_mat"))
-            {
-                MeshFilter meshFilter = child.GetComponent<MeshFilter>();
-                if (meshFilter != null)
-                {
-                    meshFilters.Add(meshFilter);
-                }
-            }
+            Debug.LogError("No meshes found in the target object's hierarchy!");
+            return;
         }
 
         foreach (MeshFilter meshFilter in meshFilters)
@@ -66,23 +54,37 @@ public class MeshDimensionCalculator : MonoBehaviour
         Debug.Log($"Floor Y position: {totalMin.y}");
     }
 
+    private void CollectMeshFilters(Transform parent, List<MeshFilter> meshFilters)
+    {
+        MeshFilter meshFilter = parent.GetComponent<MeshFilter>();
+        if (meshFilter != null)
+        {
+            meshFilters.Add(meshFilter);
+        }
+
+        for (int i = 0; i < parent.childCount; i++)
+        {
+            CollectMeshFilters(parent.GetChild(i), meshFilters);
+        }
+    }
+
     public void ResetToOrigin()
     {
-        if (modelWrapper == null)
+        if (targetObject == null)
         {
-            Debug.LogError("ModelWrapper is not assigned!");
+            Debug.LogError("Target object is not assigned!");
             return;
         }
 
-        modelWrapper.transform.position = Vector3.zero;
-        Debug.Log("ModelWrapper has been reset to (0,0,0).");
+        targetObject.transform.position = Vector3.zero;
+        Debug.Log("Target object has been reset to (0,0,0).");
     }
 
     public void ResetFloorToZero()
     {
-        if (modelWrapper == null)
+        if (targetObject == null)
         {
-            Debug.LogError("ModelWrapper is not assigned!");
+            Debug.LogError("Target object is not assigned!");
             return;
         }
 
@@ -92,9 +94,9 @@ public class MeshDimensionCalculator : MonoBehaviour
             return;
         }
 
-        Vector3 currentPosition = modelWrapper.transform.position;
-        modelWrapper.transform.position = new Vector3(currentPosition.x, -totalMin.y, currentPosition.z);
-        Debug.Log($"ModelWrapper floor has been reset to Y = 0. New position: {modelWrapper.transform.position}");
+        Vector3 currentPosition = targetObject.transform.position;
+        targetObject.transform.position = new Vector3(currentPosition.x, -totalMin.y, currentPosition.z);
+        Debug.Log($"Target object floor has been reset to Y = 0. New position: {targetObject.transform.position}");
     }
 }
 
