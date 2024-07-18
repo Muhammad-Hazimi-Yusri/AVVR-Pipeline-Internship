@@ -5,7 +5,6 @@ using UnityEngine;
 using Dummiesman;
 using UnityEditor.SceneManagement;
 
-
 [ExecuteInEditMode]
 public class ImportScenery : MonoBehaviour
 {
@@ -26,7 +25,6 @@ public class ImportScenery : MonoBehaviour
         ImportScene(GetNewMesh());
     }
 
-    // automates importation of new scenery from new obj mesh
     public static void ImportScene(GameObject AVVRScene)
     {
         if (AVVRScene == null)
@@ -35,14 +33,14 @@ public class ImportScenery : MonoBehaviour
         }
         else
         {
-            // destroy existing scene using wrapper parent object
+            // Destroy existing scene using wrapper parent object
             GameObject existingWrapper = GameObject.Find("ModelWrapper");
             if (existingWrapper != null)
             {
                 DestroyImmediate(existingWrapper);
             }
 
-            // initialise steam materials for model meshes and export steam geometry
+            // Initialize steam materials for model meshes and export steam geometry
             InitialiseMesh(AVVRScene);
             
             // Create new ModelWrapper
@@ -57,33 +55,36 @@ public class ImportScenery : MonoBehaviour
             // Set AVVRScene as child of ModelWrapper
             AVVRScene.transform.SetParent(modelWrapper.transform, false);
 
+            // Add colliders to all meshes in the scene
+            AddCollidersToMeshes(modelWrapper);
+
             // Update ModelWrapper's MeshRenderer bounds to encapsulate all children
             UpdateModelWrapperBounds(modelWrapper);
 
-            // resize locomotion area to new scene
-            GameObject locomotionArea = GameObject.Find("LocomotionArea");
-            if (locomotionArea != null)
-            {
-                ResizeLocomotionArea resizeScript = locomotionArea.GetComponent<ResizeLocomotionArea>();
-                if (resizeScript != null)
-                {
-                    resizeScript.Resize();
-                }
-                else
-                {
-                    Debug.LogWarning("ResizeLocomotionArea script not found on LocomotionArea.");
-                }
-            }
-            else
-            {
-                Debug.LogWarning("LocomotionArea not found in the scene.");
-            }
+            // Resize locomotion area to new scene
+            ResizeLocomotionArea();
 
             Debug.Log($"ModelWrapper dimensions: {meshRenderer.bounds.size}");
         }
     }
 
-    // Update ModelWrapper's MeshRenderer bounds
+    private static void AddCollidersToMeshes(GameObject parent)
+    {
+        MeshFilter[] meshFilters = parent.GetComponentsInChildren<MeshFilter>();
+        foreach (MeshFilter meshFilter in meshFilters)
+        {
+            GameObject obj = meshFilter.gameObject;
+            if (obj.GetComponent<Collider>() == null)
+            {
+                MeshCollider meshCollider = obj.AddComponent<MeshCollider>();
+                meshCollider.convex = false;
+                meshCollider.cookingOptions = MeshColliderCookingOptions.EnableMeshCleaning | 
+                                              MeshColliderCookingOptions.WeldColocatedVertices;
+                Debug.Log($"Added MeshCollider to {obj.name}");
+            }
+        }
+    }
+
     private static void UpdateModelWrapperBounds(GameObject modelWrapper)
     {
         MeshRenderer wrapperRenderer = modelWrapper.GetComponent<MeshRenderer>();
@@ -110,7 +111,27 @@ public class ImportScenery : MonoBehaviour
         wrapperRenderer.bounds = bounds;
     }
 
-    // gets new obj from file system
+    private static void ResizeLocomotionArea()
+    {
+        GameObject locomotionArea = GameObject.Find("LocomotionArea");
+        if (locomotionArea != null)
+        {
+            ResizeLocomotionArea resizeScript = locomotionArea.GetComponent<ResizeLocomotionArea>();
+            if (resizeScript != null)
+            {
+                resizeScript.Resize();
+            }
+            else
+            {
+                Debug.LogWarning("ResizeLocomotionArea script not found on LocomotionArea.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("LocomotionArea not found in the scene.");
+        }
+    }
+
     static GameObject GetNewMesh()
     {
         // starts in default folder for pipeline output        
@@ -122,8 +143,7 @@ public class ImportScenery : MonoBehaviour
         Debug.Log("Default path: " + default_path);
         string replace_path = UnityEditor.EditorUtility.OpenFilePanel("Select scene mesh", default_path, "obj");
 
-        // TODO check if string ends in .obj
-        if (replace_path != null && replace_path != "" && replace_path.Substring(replace_path.Length - 4) == ".obj")
+        if (replace_path != null && replace_path != "" && replace_path.EndsWith(".obj"))
         {
             // use objloader library to load in new game object from mesh filepath
             GameObject newObj = new OBJLoader().Load(replace_path);
@@ -135,7 +155,6 @@ public class ImportScenery : MonoBehaviour
         }
     }
 
-    // automate adding of steam audio geometry/properties
     static void InitialiseMesh(GameObject uninitialisedGameObject)
     {
         // add assign materials component to game object (will iterate through children to assign)
