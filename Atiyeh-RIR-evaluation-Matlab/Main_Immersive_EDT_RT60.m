@@ -2,15 +2,15 @@ addpath 'RIRs' 'IoSR Toolbox' 'octave'
 
 %% GDP rooms
 % KT
-%[LS2_sweep, fs2] = audioread("sounds/KT_GDP/RIR_KT_Unity_bf.wav");
-%[sweep, fsst] = audioread("sounds/KT_GDP/sine_sweep_16bit.wav");
-%[RT, DRR, C50, Cfs, EDT] = ...
-%iosr.acoustics.irStats("sounds/KT_GDP/RIR_KT_Unity_bf.wav",'graph', true, 'spec', 'full');
-% MR
-[LS2_sweep, fs2] = audioread("sounds/MR_GDP/RIR_MR_Unity_bf.wav");
-[sweep, fsst] = audioread("sounds/MR_GDP/sine_sweep_16bit.wav");
+[LS2_sweep, fs2] = audioread("sounds/KT_GDP/RIR_KT_Unity_bf.wav");
+[sweep, fsst] = audioread("sounds/KT_GDP/sine_sweep_16bit.wav");
 [RT, DRR, C50, Cfs, EDT] = ...
-iosr.acoustics.irStats("sounds/MR_GDP/RIR_MR_Unity_bf.wav",'graph', true, 'spec', 'full');
+iosr.acoustics.irStats("sounds/KT_GDP/RIR_KT_Unity_bf.wav",'graph', true, 'spec', 'full');
+% MR
+%[LS2_sweep, fs2] = audioread("sounds/MR_GDP/RIR_MR_Unity_bf.wav");
+%[sweep, fsst] = audioread("sounds/MR_GDP/sine_sweep_16bit.wav");
+%[RT, DRR, C50, Cfs, EDT] = ...
+%iosr.acoustics.irStats("sounds/MR_GDP/RIR_MR_Unity_bf.wav",'graph', true, 'spec', 'full');
 %
 
 %% 
