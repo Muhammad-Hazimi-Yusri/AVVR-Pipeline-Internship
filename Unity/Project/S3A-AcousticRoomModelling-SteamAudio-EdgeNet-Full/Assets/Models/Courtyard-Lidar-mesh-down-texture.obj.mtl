@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:587ca62b2aec5e38ff9b03659d27990b498eca87a0150672a963b7e464a8d08f
-size 256
+#
+# Wavefront material file
+# Converted by Meshlab Group
+#
+
+newmtl material_0
+Ka 0.200000 0.200000 0.200000
+Kd 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Tr 1.000000
+illum 2
+Ns 0.000000
+map_Kd Courtyard-Lidar-mesh-down_tex.png
+

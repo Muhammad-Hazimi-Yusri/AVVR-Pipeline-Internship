@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3b2baa52e50b55505e6f5b011be357cac15af0940595aab17cfa80d1cf289a6b
-size 109
+# File created by ZBrush
+# ToolType: PolyMesh3D
+# www.zbrush.com
+newmtl defaultMat
+map_Kd Kitchen_zb_v01.bmp
