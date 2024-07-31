@@ -212,8 +212,10 @@ function [rt,drr,cte,cfs,edt] = irStats(filename,varargin)
             y = filter(b(f,:),a(f,:),x(:,n)); % octave-band filter
             temp = cumtrapz(y(end:-1:1).^2); % decay curve
             z(f,:,n) = temp(end:-1:1);
-            [rt_temp(f,n),E_rt,fit_rt] = calc_decay(z(f,t0:end,n),options.y_fit,60,fs,cfs(f)); % estimate RT
-            [edt(f,n),E_edt,fit_edt] = calc_decay(z(f,t0:end,n),[0,-10],60,fs,cfs(f)); % estimate EDT
+            % TODO: change number before fs for both to be according to
+            % y_fit range
+            [rt_temp(f,n),E_rt,fit_rt] = calc_decay(z(f,t0:end,n),options.y_fit,25,fs,cfs(f)); % estimate RT
+            [edt(f,n),E_edt,fit_edt] = calc_decay(z(f,t0:end,n),[0,-10],25,fs,cfs(f)); % estimate EDT 
             if options.graph % plot
                 % time axes for different vectors
                 ty = ((0:length(y)-1)-t0(n))./fs;

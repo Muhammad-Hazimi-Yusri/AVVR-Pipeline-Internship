@@ -14,8 +14,8 @@ addpath 'RIRs' 'IoSR Toolbox' 'octave'
 % ST
 [LS2_sweep, fs2] = audioread("sounds/ST_GDP/RIR_ST_Unity_bf.wav");
 [sweep, fsst] = audioread("sounds/ST_GDP/sine_sweep_16bit.wav");
-[RT20, DRR, C50, Cfs, EDT] = ...
-iosr.acoustics.irStats("sounds/ST_GDP/RIR_ST_Unity_bf.wav",'graph', true, 'spec', 'full', 'y_fit', [-5 -35]);
+[RT25, DRR, C50, Cfs, EDT] = ...
+iosr.acoustics.irStats("sounds/ST_GDP/RIR_ST_Unity_bf.wav",'graph', true, 'spec', 'full', 'y_fit', [-5 -30]);
 %
 %% 
 
@@ -59,12 +59,12 @@ iosr.acoustics.irStats("sounds/ST_GDP/RIR_ST_Unity_bf.wav",'graph', true, 'spec'
 %iosr.acoustics.irStats("sounds/ST_MDBNet/RIR_ST_Unity_bf.wav",'graph', true, 'spec', 'full');
 
 % Calculating Mean Values
-mean_RT20 = mean(RT20(3:8));
+mean_RT25 = mean(RT25(3:8));
 %mean_RT60 = mean(RT60(3:8));
 mean_EDT = mean(EDT(3:8));
 
 % Estimate RT60 from RT30
-mean_RT60 = mean_RT20 * 2;
+mean_RT60 = mean_RT25 * (60/25);
 
 t2 = 0:1/fs2:((length(LS2_sweep)-1)/fs2);
 
@@ -74,8 +74,8 @@ plot(t2,LS2_sweep(:,1).'); xlabel("time [s]"); ylabel("Amplitude"); title("RIR f
 
 
 % Display Mean Values
-disp('Mean RT30:');
-disp(mean_RT20);
+disp('Mean RT25:');
+disp(mean_RT25);
 
 disp('Estimated Mean RT60:');
 disp(mean_RT60);
