@@ -14,7 +14,7 @@ addpath 'RIRs' 'IoSR Toolbox' 'octave'
 % ST
 [LS2_sweep, fs2] = audioread("sounds/ST_GDP/RIR_ST_Unity_bf.wav");
 [sweep, fsst] = audioread("sounds/ST_GDP/sine_sweep_16bit.wav");
-[RT25, DRR, C50, Cfs, EDT] = ...
+[RT25, DRR, C50, Cfs, EDT] = ... % -5 to -30 as RT25 was found to be sweet spot for ST
 iosr.acoustics.irStats("sounds/ST_GDP/RIR_ST_Unity_bf.wav",'graph', true, 'spec', 'full', 'y_fit', [-5 -30]);
 %
 %% 
