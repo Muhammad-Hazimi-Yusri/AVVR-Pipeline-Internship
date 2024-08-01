@@ -4,8 +4,8 @@ addpath 'RIRs' 'IoSR Toolbox' 'octave'
 % KT
 %[LS2_sweep, fs2] = audioread("sounds/KT_GDP/RIR_KT_Unity_bf.wav");
 %[sweep, fsst] = audioread("sounds/KT_GDP/sine_sweep_16bit.wav");
-%[RT20, DRR, C50, Cfs, EDT] = ...
-%iosr.acoustics.irStats("sounds/KT_GDP/RIR_KT_Unity_bf.wav",'graph', true, 'spec', 'full', 'y_fit', [-5 -25]);
+%[RT25, DRR, C50, Cfs, EDT] = ...
+%iosr.acoustics.irStats("sounds/KT_GDP/RIR_KT_Unity_bf.wav",'graph', true, 'spec', 'full', 'y_fit', [-5 -30]);
 % MR
 %[LS2_sweep, fs2] = audioread("sounds/MR_GDP/RIR_MR_Unity_bf.wav");
 %[sweep, fsst] = audioread("sounds/MR_GDP/sine_sweep_16bit.wav");
@@ -78,6 +78,7 @@ disp('Mean RT25:');
 disp(mean_RT25);
 
 disp('Estimated Mean RT60:');
+%disp('Mean RT60:');
 disp(mean_RT60);
 
 disp('Mean EDT:');
