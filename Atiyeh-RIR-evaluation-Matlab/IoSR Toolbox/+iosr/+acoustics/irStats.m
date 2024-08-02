@@ -216,7 +216,7 @@ function [rt,drr,cte,cfs,edt] = irStats(filename,varargin)
             % Calculate the decay range from y_fit
             decay_range = abs(diff(options.y_fit)); % modified only RT line from hardcoded 60 to follow range from y_fit given
             [rt_temp(f,n),E_rt,fit_rt] = calc_decay(z(f,t0:end,n),options.y_fit,decay_range,fs,cfs(f)); % estimate RT
-            [edt(f,n),E_edt,fit_edt] = calc_decay(z(f,t0:end,n),[0,-10],decay_range,fs,cfs(f)); % estimate EDT, use hardcoded 60 value instead, 
+            [edt(f,n),E_edt,fit_edt] = calc_decay(z(f,t0:end,n),[0,-10],decay_range/2,fs,cfs(f)); % estimate EDT, use hardcoded 60 value instead, 
             % steam audio early reflections problem most likely causing issues
             %% end of modification
             if options.graph % plot
