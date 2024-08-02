@@ -7,15 +7,15 @@ addpath 'RIRs' 'IoSR Toolbox' 'octave'
 %[RT60, DRR, C50, Cfs, EDT] = ...
 %iosr.acoustics.irStats("sounds/KT_GDP/RIR_KT_Unity_bf.wav",'graph', true, 'spec', 'full');
 % LR
-[LS2_sweep, fs2] = audioread("sounds/LR_GDP/RIR_LR_Unity_bf.wav");
-[sweep, fsst] = audioread("sounds/LR_GDP/sine_sweep_16bit.wav");
-[RT30, DRR, C50, Cfs, EDT] = ...
-iosr.acoustics.irStats("sounds/LR_GDP/RIR_LR_Unity_bf.wav",'graph', true, 'spec', 'full', 'y_fit', [-5 -35]);
+%[LS2_sweep, fs2] = audioread("sounds/LR_GDP/RIR_LR_Unity_bf.wav");
+%[sweep, fsst] = audioread("sounds/LR_GDP/sine_sweep_16bit.wav");
+%[RT30, DRR, C50, Cfs, EDT] = ...
+%iosr.acoustics.irStats("sounds/LR_GDP/RIR_LR_Unity_bf.wav",'graph', true, 'spec', 'full', 'y_fit', [-5 -35]);
 % MR
-%[LS2_sweep, fs2] = audioread("sounds/MR_GDP/RIR_MR_Unity_bf.wav");
-%[sweep, fsst] = audioread("sounds/MR_GDP/sine_sweep_16bit.wav");
-%[RT25, DRR, C50, Cfs, EDT] = ...
-%iosr.acoustics.irStats("sounds/MR_GDP/RIR_MR_Unity_bf.wav",'graph', true, 'spec', 'full', 'y_fit', [-5 -30]);
+[LS2_sweep, fs2] = audioread("sounds/MR_GDP/RIR_MR_Unity_bf.wav");
+[sweep, fsst] = audioread("sounds/MR_GDP/sine_sweep_16bit.wav");
+[RT42_5, DRR, C50, Cfs, EDT] = ...
+iosr.acoustics.irStats("sounds/MR_GDP/RIR_MR_Unity_bf.wav",'graph', true, 'spec', 'full', 'y_fit', [-5 -47.5]);
 % ST
 %[LS2_sweep, fs2] = audioread("sounds/ST_GDP/RIR_ST_Unity_bf.wav");
 %[sweep, fsst] = audioread("sounds/ST_GDP/sine_sweep_16bit.wav");
@@ -64,14 +64,14 @@ iosr.acoustics.irStats("sounds/LR_GDP/RIR_LR_Unity_bf.wav",'graph', true, 'spec'
 %iosr.acoustics.irStats("sounds/ST_MDBNet/RIR_ST_Unity_bf.wav",'graph', true, 'spec', 'full');
 
 % Calculating Mean Values
-mean_RT30 = mean(RT30(3:8));
-%mean_RT50 = mean(RT50(3:8));
+%mean_RT30 = mean(RT30(3:8));
+mean_RT42_5 = mean(RT42_5(3:8));
 %mean_RT60 = mean(RT60(3:8));
 mean_EDT = mean(EDT(3:8));
 
 % Estimate RT60 from different RTs
-mean_RT60 = mean_RT30 * 2;
-%mean_RT60 = mean_RT50 * 6/5;
+%mean_RT60 = mean_RT30 * 2;
+mean_RT60 = mean_RT42_5 * 60/42.5;
 
 
 t2 = 0:1/fs2:((length(LS2_sweep)-1)/fs2);
