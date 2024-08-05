@@ -212,13 +212,8 @@ function [rt,drr,cte,cfs,edt] = irStats(filename,varargin)
             y = filter(b(f,:),a(f,:),x(:,n)); % octave-band filter
             temp = cumtrapz(y(end:-1:1).^2); % decay curve
             z(f,:,n) = temp(end:-1:1);
-            %% modified by mhby1g21 1 August 2024, start:
-            % Calculate the decay range from y_fit
-            decay_range = abs(diff(options.y_fit)); % modified only RT line from hardcoded 60 to follow range from y_fit given
-            [rt_temp(f,n),E_rt,fit_rt] = calc_decay(z(f,t0:end,n),options.y_fit,decay_range,fs,cfs(f)); % estimate RT
-            [edt(f,n),E_edt,fit_edt] = calc_decay(z(f,t0:end,n),[0,-10],decay_range/2,fs,cfs(f)); % estimate EDT, use hardcoded 60 value instead, 
-            % steam audio early reflections problem most likely causing issues
-            %% end of modification
+            [rt_temp(f,n),E_rt,fit_rt] = calc_decay(z(f,t0:end,n),options.y_fit,60,fs,cfs(f)); % estimate RT, extrapolate to 60db
+            [edt(f,n),E_edt,fit_edt] = calc_decay(z(f,t0:end,n),[0,-10],60,fs,cfs(f)); % estimate EDT, extrapolate to 60db
             if options.graph % plot
                 % time axes for different vectors
                 ty = ((0:length(y)-1)-t0(n))./fs;
