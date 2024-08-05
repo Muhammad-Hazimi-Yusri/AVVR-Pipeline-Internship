@@ -24,45 +24,6 @@ iosr.acoustics.irStats("sounds/MR_GDP/RIR_MR_Unity_bf.wav",'graph', true, 'spec'
 %
 %% 
 
-% MR room
-%[LS2_sweep, fs2] = audioread("sounds/MR_MDBNet/RIR_MR_Unity_bf.wav");
-
-% KT room
-%[LS2_sweep, fs2] = audioread("sounds/KT_MDBNet/RIR_KT_Unity_bf.wav");
-%[LS2_sweep, fs2] = audioread("sounds/KT_MDBNet/RIR_KT_gun_Unity_ch1_v2.wav");
-
-% UL room
-%[LS2_sweep, fs2] = audioread("sounds/UL_MDBNet/RIR_UL_Unity_bf.wav");
-
-% ST room
-%[LS2_sweep, fs2] = audioread("sounds/ST_MDBNet/RIR_ST_Unity_bf.wav");
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%[sweep, fsst] = audioread("sounds/MR_MDBNet/sine_sweep_16bit.wav");
-%[sweep, fsst] = audioread("sounds/KT_MDBNet/Gunshot-Mono.wav");
-%[sweep, fsst] = audioread("sounds/KT_MDBNet/sine_sweep_16bit.wav");
-%[sweep, fsst] = audioread("sounds/UL_MDBNet/sine_sweep_16bit.wav");
-%[sweep, fsst] = audioread("sounds/ST_MDBNet/sine_sweep_16bit.wav");
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-% MR room
-%[RT, DRR, C50, Cfs, EDT] = ...
-%iosr.acoustics.irStats("sounds/MR_MDBNet/RIR_MR_Unity_bf.wav",'graph', true, 'spec', 'full');
-
-% KT room
-%[RT, DRR, C50, Cfs, EDT] = ...
-%iosr.acoustics.irStats("sounds/KT_MDBNet/RIR_KT_Unity_bf.wav",'graph', true, 'spec', 'full');
-%[RT, DRR, C50, Cfs, EDT] = ...
-%iosr.acoustics.irStats("sounds/KT_MDBNet/RIR_KT_gun_Unity_ch1_v2.wav",'graph', true, 'spec', 'full');
-
-% UL room
-%[RT, DRR, C50, Cfs, EDT] = ...
-%iosr.acoustics.irStats("sounds/UL_MDBNet/RIR_UL_Unity_bf.wav",'graph', true, 'spec', 'full');
-
-% ST room
-%[RT, DRR, C50, Cfs, EDT] = ...
-%iosr.acoustics.irStats("sounds/ST_MDBNet/RIR_ST_Unity_bf.wav",'graph', true, 'spec', 'full');
-
 % Calculating Mean Values
 %mean_RT30 = mean(RT30(3:8));
 mean_RT42_5 = mean(RT42_5(3:8));
@@ -93,3 +54,4 @@ disp('Mean EDT:');
 disp(mean_EDT);
 %..........................................................................
 %..........................................................................
+
