@@ -1,3 +1,5 @@
+addpath 'IoSR Toolbox' 'octave'
+
 % KT
 [LS2_sweep, fs2] = audioread("sounds/KT_GDP/RIR_KT_Unity_bf.wav");
 [sweep, fsst] = audioread("sounds/KT_GDP/sine_sweep_16bit.wav");
