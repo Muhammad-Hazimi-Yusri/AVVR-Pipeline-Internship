@@ -4,7 +4,7 @@ addpath 'IoSR Toolbox' 'octave'
 [LS2_sweep, fs2] = audioread("sounds/KT_GDP/RIR_KT_Unity_bf.wav");
 [sweep, fsst] = audioread("sounds/KT_GDP/sine_sweep_16bit.wav");
 [RT60, DRR, C50, Cfs, EDT] = ...
-iosr.acoustics.irStats("sounds/KT_GDP/RIR_KT_Unity_bf.wav",'graph', true, 'spec', 'full');
+iosr.acoustics.irStats("sounds/KT_GDP/RIR_KT_Unity_bf.wav",'graph', true, 'spec', 'full', 'y_fit', [-5 -35]);
 
 % Calculating Mean Values
 mean_RT60 = mean(RT60(3:8));
