@@ -1210,7 +1210,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 821062232}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f204e1485c2a75a4fbd198256692e1ce, type: 3}
   m_Name: 
@@ -5264,11 +5264,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c3684b22f00604a97bb68037fcf4cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  directBinaural: 1
+  directBinaural: 0
   interpolation: 0
   perspectiveCorrection: 1
   distanceAttenuation: 1
-  distanceAttenuationInput: 0
+  distanceAttenuationInput: 1
   distanceAttenuationValue: 1
   airAbsorption: 1
   airAbsorptionInput: 0
@@ -5278,7 +5278,7 @@ MonoBehaviour:
   directivity: 1
   directivityInput: 0
   dipoleWeight: 0
-  dipolePower: 2.22
+  dipolePower: 0
   directivityValue: 1
   occlusion: 1
   occlusionInput: 0
@@ -5295,7 +5295,7 @@ MonoBehaviour:
   maxTransmissionSurfaces: 5
   directMixLevel: 1
   reflections: 1
-  reflectionsType: 1
+  reflectionsType: 2
   useDistanceCurveForReflections: 1
   currentBakedSource: {fileID: 1830449412}
   reverbTimeLow: 0
@@ -5305,7 +5305,7 @@ MonoBehaviour:
   hybridReverbEQMid: 1
   hybridReverbEQHigh: 1
   hybridReverbDelay: 0
-  applyHRTFToReflections: 1
+  applyHRTFToReflections: 0
   reflectionsMixLevel: 1
   pathing: 0
   pathingProbeBatch: {fileID: 1762029520}
@@ -5344,11 +5344,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5fb177c707372cd42a210dcb0e304535, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_audioClip: {fileID: 8300000, guid: 82df64f028fe2b14f806a38be3bf68a4, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 1
   SpatializePostEffects: 0
