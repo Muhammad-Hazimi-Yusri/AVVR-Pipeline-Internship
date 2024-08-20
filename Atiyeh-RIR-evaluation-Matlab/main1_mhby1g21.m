@@ -41,6 +41,8 @@ inv_filter = inv_filter / max(abs(inv_filter));
 % Save sweep as .wav file
 audiowrite('sweep.wav', sweep, fs);
 disp('Sweep saved as sweep.wav');
+audiowrite('inverse_filter.wav', inv_filter, fs);
+disp('Inverse filter saved as inverse_filter.wav');
 
 % Use the original sweep as the recorded sweep for perfect impulse demonstration
 recorded_sweep = sweep;
@@ -124,5 +126,5 @@ rt60 = calculate_rt60(rir, fs, -40);  % Use -40 dB as noise floor
 disp(['Calculated RT60: ', num2str(rt60), ' seconds']);
 
 % Save RIR as .wav file
-audiowrite('room_impulse_response.wav', rir, fs);
-disp('Room Impulse Response saved as room_impulse_response.wav');
+audiowrite('perfect_room_impulse_response.wav', rir, fs);
+disp('Perfect room Impulse Response saved as perfect_room_impulse_response.wav');
