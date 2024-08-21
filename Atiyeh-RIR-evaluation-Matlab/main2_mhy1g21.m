@@ -6,7 +6,7 @@ close all;
 
 % Parameters
 fs = 48000;  % Sample rate (Hz)
-silence_threshold = 0.001;  % Adjust this value to fine-tune silence detection (lowered for less aggressive cutoff)
+silence_threshold = 0.0000001;  % Adjust this value to fine-tune silence detection (lowered for less aggressive cutoff)
 
 try
     % Load the original sweep and inverse filter
@@ -17,7 +17,7 @@ try
     assert(fs_sweep == fs && fs_inv == fs, 'Sample rates of sweep and inverse filter must match the specified fs');
 
     % Read the recorded sweep
-    [recorded_sweep, fs_recorded] = audioread('Recorded/KT_matlab_sweep_synced_0.1vol_1to1.wav');
+    [recorded_sweep, fs_recorded] = audioread('Recorded/Test_matlab_sweep_openair_synced_0.1vol.wav');
 
     % Convert recorded sweep to mono if it's stereo
     if size(recorded_sweep, 2) > 1
