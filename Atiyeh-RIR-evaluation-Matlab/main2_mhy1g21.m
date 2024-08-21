@@ -17,7 +17,7 @@ try
     assert(fs_sweep == fs && fs_inv == fs, 'Sample rates of sweep and inverse filter must match the specified fs');
 
     % Read the recorded sweep
-    [recorded_sweep, fs_recorded] = audioread('Recorded/KT_matlab_sweep_0.5vol_0.5to5_-20attenuation.wav');
+    [recorded_sweep, fs_recorded] = audioread('Recorded/KT_matlab_sweep_synced_0.1vol_1to1.wav');
 
     % Convert recorded sweep to mono if it's stereo
     if size(recorded_sweep, 2) > 1
