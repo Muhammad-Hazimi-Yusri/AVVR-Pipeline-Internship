@@ -1,36 +1,39 @@
 using UnityEngine;
 using System.Collections;
+using UnityEditor;
 
 public class DelayedAudioPlay : MonoBehaviour
 {
     public float delayTime = 2f; // Delay in seconds
-    public AudioSource[] audioSources; // Array of AudioSources to play
+    private AudioSource audioSource;
+    private AudioRecorder audioRecorder;
 
     private void Start()
     {
-        // If audioSources is empty, try to get all AudioSources from this GameObject
-        if (audioSources.Length == 0)
+        audioSource = GetComponent<AudioSource>();
+        audioRecorder = EditorWindow.GetWindow<AudioRecorder>();
+
+        if (audioSource == null)
         {
-            audioSources = GetComponents<AudioSource>();
+            Debug.LogError("No AudioSource found on this GameObject.");
+            return;
         }
 
-        // Start the coroutine to play audio after delay
+        if (audioRecorder == null)
+        {
+            Debug.LogError("Audio Recorder window is not open. Please open it from Window > Audio Recorder.");
+            return;
+        }
+
         StartCoroutine(PlayAudioAfterDelay());
     }
 
     private IEnumerator PlayAudioAfterDelay()
     {
-        // Wait for the specified delay time
         yield return new WaitForSeconds(delayTime);
 
-        // Play all audio sources
-        foreach (AudioSource source in audioSources)
-        {
-            if (source != null)
-            {
-                source.Play();
-                Debug.Log($"Playing audio source: {source.name}");
-            }
-        }
+        audioRecorder.StartRecording();
+        audioSource.Play();
+        Debug.Log($"Playing audio source: {audioSource.name}");
     }
 }

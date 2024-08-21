@@ -74,8 +74,10 @@ public class AudioRecorder : EditorWindow
         }
     }
 
-    private void StartRecording()
+    public void StartRecording()
     {
+        if (isRecording) return;
+
         audioCapture = FindObjectOfType<AudioCapture>();
         if (audioCapture == null)
         {
@@ -92,6 +94,7 @@ public class AudioRecorder : EditorWindow
         isRecording = true;
         startTime = Time.realtimeSinceStartup;
         recordingCoroutine = EditorCoroutine.StartCoroutine(RecordingCoroutine());
+        Debug.Log("Recording started.");
     }
 
     private IEnumerator RecordingCoroutine()
@@ -103,7 +106,7 @@ public class AudioRecorder : EditorWindow
         StopRecording();
     }
 
-    private void StopRecording()
+    public void StopRecording()
     {
         if (!isRecording) return;
 
