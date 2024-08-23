@@ -1,11 +1,11 @@
-% Robust alignment and RIR extraction script
+% RIR extraction script with pure silence removal and robust alignment
 
 clear all;
 close all;
 
 % Parameters
 fs = 48000;  % Sample rate (Hz)
-alignment_window = 0.1;  % Time window for alignment (in seconds)
+alignment_window = 0.2;  % Time window for alignment (in seconds)
 
 try
     % Load the original sweep and inverse filter
@@ -16,7 +16,7 @@ try
     assert(fs_sweep == fs && fs_inv == fs, 'Sample rates of sweep and inverse filter must match the specified fs');
 
     % Read the recorded sweep
-    [recorded_sweep, fs_recorded] = audioread('Recorded/Test_matlab_sweep_openair_synced_0.1vol.wav');
+    [recorded_sweep, fs_recorded] = audioread('Recorded/LR_matlab_sweep_synced_0.1vol_1to1.wav');
 
     % Convert recorded sweep to mono if it's stereo
     if size(recorded_sweep, 2) > 1
@@ -28,18 +28,18 @@ try
         recorded_sweep = resample(recorded_sweep, fs, fs_recorded);
     end
 
+    % Remove pure silence from both sweeps
+    [sweep, sweep_start] = remove_pure_silence(sweep);
+    [recorded_sweep, recorded_start] = remove_pure_silence(recorded_sweep);
+
     % Normalize both signals
     sweep = sweep / max(abs(sweep));
     recorded_sweep = recorded_sweep / max(abs(recorded_sweep));
 
-    % Find the start of the sweep in both signals
-    sweep_start = find(abs(sweep) > 0.01, 1);
-    recorded_start = find(abs(recorded_sweep) > 0.01, 1);
-
     % Extract a portion of each signal for alignment
     alignment_samples = round(alignment_window * fs);
-    sweep_portion = sweep(sweep_start:sweep_start+alignment_samples-1);
-    recorded_portion = recorded_sweep(recorded_start:recorded_start+alignment_samples-1);
+    sweep_portion = sweep(1:min(alignment_samples, length(sweep)));
+    recorded_portion = recorded_sweep(1:min(alignment_samples, length(recorded_sweep)));
 
     % Perform cross-correlation on the extracted portions
     [acor, lag] = xcorr(recorded_portion, sweep_portion);
@@ -135,4 +135,13 @@ catch err
     disp(err.message);
     % Display the line where the error occurred
     disp(['Error in line: ', num2str(err.stack(1).line)]);
+end
+
+% Function to remove pure silence keeping the last silent sample
+function [signal_no_silence, start_index] = remove_pure_silence(signal)
+    start_index = find(signal ~= 0, 1) - 1;
+    if start_index < 1
+        start_index = 1;
+    end
+    signal_no_silence = signal(start_index:end);
 end

@@ -1,6 +1,6 @@
 % Parameters
 fs = 48000;  % Sample rate
-T = 10;      % Duration in seconds
+T = 30;      % Duration in seconds
 t = (0:1/fs:T-1/fs)';
 
 % Generate an exponential sine sweep
@@ -39,9 +39,9 @@ sweep = sweep / max(abs(sweep));
 inv_filter = inv_filter / max(abs(inv_filter));
 
 % Save sweep as .wav file
-audiowrite('sweep.wav', sweep, fs);
+audiowrite('sweep_30sec.wav', sweep, fs);
 disp('Sweep saved as sweep.wav');
-audiowrite('inverse_filter.wav', inv_filter, fs);
+audiowrite('inverse_filter_30sec.wav', inv_filter, fs);
 disp('Inverse filter saved as inverse_filter.wav');
 
 % Use the original sweep as the recorded sweep for perfect impulse demonstration
@@ -126,5 +126,5 @@ rt60 = calculate_rt60(rir, fs, -40);  % Use -40 dB as noise floor
 disp(['Calculated RT60: ', num2str(rt60), ' seconds']);
 
 % Save RIR as .wav file
-audiowrite('perfect_room_impulse_response.wav', rir, fs);
+audiowrite('perfect_room_impulse_response_30sec.wav', rir, fs);
 disp('Perfect room Impulse Response saved as perfect_room_impulse_response.wav');

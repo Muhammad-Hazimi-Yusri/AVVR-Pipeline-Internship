@@ -2,7 +2,7 @@ addpath 'IoSR Toolbox' 'octave'
 
 [LS2_sweep, fs2] = audioread("room_impulse_response.wav");
 [sweep, fsst] = audioread("sweep.wav");
-[RT60, DRR, C50, Cfs, EDT] = iosr.acoustics.irStats('room_impulse_response.wav','graph', true, 'spec', 'full');
+[RT60, DRR, C50, Cfs, EDT] = iosr.acoustics.irStats('perfect_room_impulse_response_30sec.wav','graph', true, 'spec', 'full', 'y_fit', [-5 -35]);
 
 % Calculating Mean Values
 mean_RT60 = mean(RT60(3:8));
