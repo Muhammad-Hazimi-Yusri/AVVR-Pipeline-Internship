@@ -1,11 +1,11 @@
-% RIR extraction script with pure silence removal and robust alignment
+% Robust alignment and RIR extraction script
 
 clear all;
 close all;
 
 % Parameters
 fs = 48000;  % Sample rate (Hz)
-alignment_window = 0.2;  % Time window for alignment (in seconds)
+alignment_window = 0.1;  % Time window for alignment (in seconds)
 
 try
     % Load the original sweep and inverse filter
@@ -16,7 +16,7 @@ try
     assert(fs_sweep == fs && fs_inv == fs, 'Sample rates of sweep and inverse filter must match the specified fs');
 
     % Read the recorded sweep
-    [recorded_sweep, fs_recorded] = audioread('Recorded/LR_matlab_sweep_synced_0.1vol_1to1.wav');
+    [recorded_sweep, fs_recorded] = audioread('Recorded/Test_matlab_sweep_openair_synced_0.1vol.wav');
 
     % Convert recorded sweep to mono if it's stereo
     if size(recorded_sweep, 2) > 1
@@ -28,18 +28,18 @@ try
         recorded_sweep = resample(recorded_sweep, fs, fs_recorded);
     end
 
-    % Remove pure silence from both sweeps
-    [sweep, sweep_start] = remove_pure_silence(sweep);
-    [recorded_sweep, recorded_start] = remove_pure_silence(recorded_sweep);
-
     % Normalize both signals
     sweep = sweep / max(abs(sweep));
     recorded_sweep = recorded_sweep / max(abs(recorded_sweep));
 
+    % Find the start of the sweep in both signals
+    sweep_start = find(abs(sweep) > 0.01, 1);
+    recorded_start = find(abs(recorded_sweep) > 0.01, 1);
+
     % Extract a portion of each signal for alignment
     alignment_samples = round(alignment_window * fs);
-    sweep_portion = sweep(1:min(alignment_samples, length(sweep)));
-    recorded_portion = recorded_sweep(1:min(alignment_samples, length(recorded_sweep)));
+    sweep_portion = sweep(sweep_start:sweep_start+alignment_samples-1);
+    recorded_portion = recorded_sweep(recorded_start:recorded_start+alignment_samples-1);
 
     % Perform cross-correlation on the extracted portions
     [acor, lag] = xcorr(recorded_portion, sweep_portion);
@@ -53,10 +53,14 @@ try
         recorded_sweep = recorded_sweep(-lagDiff+1:end);
     end
 
+    % Trim silence from the beginning of recorded_sweep
+    first_non_zero = find(recorded_sweep ~= 0, 1);
+    recorded_sweep = recorded_sweep(first_non_zero:end);
+
     % Ensure both sweeps have the same length
     min_length = min(length(sweep), length(recorded_sweep));
     sweep = sweep(1:min_length);
-    recorded_sweep = recorded_sweep(1:min_length);
+    % recorded_sweep = recorded_sweep(1:min_length);
 
     % Apply fade-in and fade-out
     fade_samples = round(0.01 * fs);  % 10 ms fade
@@ -91,11 +95,8 @@ try
     title('Start of Sweeps (Zoomed)');
     legend('show');
 
-    % Perform deconvolution in frequency domain
-    RecordedSweep_fft = fft(recorded_sweep);
-    InvFilter_fft = fft(inv_filter, length(recorded_sweep));
-    RIR_fft = RecordedSweep_fft .* InvFilter_fft;
-    rir = real(ifft(RIR_fft));
+    % Perform deconvolution
+    rir = conv(recorded_sweep, inv_filter, 'same');
 
     % Apply a window to the RIR to reduce noise
     rir_length = round(0.5 * fs);  % 500 ms RIR
@@ -135,13 +136,4 @@ catch err
     disp(err.message);
     % Display the line where the error occurred
     disp(['Error in line: ', num2str(err.stack(1).line)]);
-end
-
-% Function to remove pure silence keeping the last silent sample
-function [signal_no_silence, start_index] = remove_pure_silence(signal)
-    start_index = find(signal ~= 0, 1) - 1;
-    if start_index < 1
-        start_index = 1;
-    end
-    signal_no_silence = signal(start_index:end);
 end
