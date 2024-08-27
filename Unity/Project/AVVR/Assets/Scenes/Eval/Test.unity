@@ -1365,7 +1365,7 @@ Transform:
   m_GameObject: {fileID: 821062232}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.25, y: 0, z: -0.75}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1506,21 +1506,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d1a2bdfdee8e5b48a9949c674b73640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  influenceRadius: 7
+  influenceRadius: 5
   useAllProbeBatches: 1
   probeBatches:
   - {fileID: 0}
-  mTotalDataSize: 952409
-  mProbeDataSizes: 59880e00
+  mTotalDataSize: 1298868
+  mProbeDataSizes: b4d11300
   mIdentifier:
     type: 0
     variation: 2
     endpointInfluence:
       center:
-        x: -0.055000007
-        y: 1.326
-        z: -2.199
-      radius: 7
+        x: 0
+        y: 0.163
+        z: -2
+      radius: 5
   mProbeBatchesUsed:
   - {fileID: 1103913329}
 --- !u!114 &821062237
@@ -1541,8 +1541,8 @@ MonoBehaviour:
   useAllProbeBatches: 1
   probeBatches:
   - {fileID: 0}
-  mTotalDataSize: 1082252
-  mProbeDataSizes: 8c831000
+  mTotalDataSize: 2097162
+  mProbeDataSizes: 0a002000
   mIdentifier:
     type: 0
     variation: 0
@@ -2509,1136 +2509,2191 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placementStrategy: 1
-  horizontalSpacing: 0.7
-  heightAboveFloor: 11.4
+  horizontalSpacing: 0.5
+  heightAboveFloor: 10
   asset: {fileID: 11400000, guid: 2640378f9e72abb4f8c17cdcd755685d, type: 2}
-  probeDataSize: 3454808
+  probeDataSize: 6141932
   mProbeSpheres:
   - center:
-      x: -4.9
-      y: 1.3999996
-      z: -4.9
-    radius: 0.7
+      x: -5
+      y: 0
+      z: -5
+    radius: 0.5
   - center:
-      x: -4.9
-      y: 1.3999996
-      z: -4.2000003
-    radius: 0.7
+      x: -5
+      y: 0
+      z: -4.5
+    radius: 0.5
   - center:
-      x: -4.9
-      y: 1.3999996
-      z: -3.5000002
-    radius: 0.7
+      x: -5
+      y: 0
+      z: -4
+    radius: 0.5
   - center:
-      x: -4.9
-      y: 1.3999977
-      z: -2.8000002
-    radius: 0.7
+      x: -5
+      y: 0
+      z: -3.5
+    radius: 0.5
   - center:
-      x: -4.9
-      y: 1.3999977
-      z: -2.1000001
-    radius: 0.7
+      x: -5
+      y: 0
+      z: -3
+    radius: 0.5
   - center:
-      x: -4.9
-      y: 1.3999977
-      z: -1.4000001
-    radius: 0.7
+      x: -5
+      y: -0.0000019073486
+      z: -2.5
+    radius: 0.5
   - center:
-      x: -4.9
-      y: 1.3999977
-      z: -0.7000002
-    radius: 0.7
+      x: -5
+      y: -0.0000019073486
+      z: -1.9999999
+    radius: 0.5
   - center:
-      x: -4.9
-      y: 1.3999996
+      x: -5
+      y: -0.0000019073486
+      z: -0.99999994
+    radius: 0.5
+  - center:
+      x: -5
+      y: 0
       z: 0
-    radius: 0.7
+    radius: 0.5
   - center:
-      x: -4.9
-      y: 1.3999996
-      z: 0.6999999
-    radius: 0.7
+      x: -5
+      y: 0
+      z: 0.5000001
+    radius: 0.5
   - center:
-      x: -4.9
-      y: 1.3999996
-      z: 1.3999999
-    radius: 0.7
+      x: -5
+      y: 0
+      z: 1.0000002
+    radius: 0.5
   - center:
-      x: -4.9
-      y: 1.3999977
-      z: 2.1
-    radius: 0.7
+      x: -5
+      y: 0
+      z: 1.4999998
+    radius: 0.5
   - center:
-      x: -4.9
-      y: 1.3999977
-      z: 2.7999997
-    radius: 0.7
+      x: -5
+      y: 0
+      z: 1.9999999
+    radius: 0.5
   - center:
-      x: -4.9
-      y: 1.3999996
+      x: -5
+      y: -0.0000019073486
+      z: 2.5
+    radius: 0.5
+  - center:
+      x: -5
+      y: 0
+      z: 3
+    radius: 0.5
+  - center:
+      x: -5
+      y: 0
       z: 3.5000002
-    radius: 0.7
+    radius: 0.5
   - center:
-      x: -4.9
-      y: 1.3999996
-      z: 4.199999
-    radius: 0.7
+      x: -5
+      y: 0
+      z: 3.9999998
+    radius: 0.5
   - center:
-      x: -4.9
-      y: 1.3999996
-      z: 4.8999996
-    radius: 0.7
+      x: -5
+      y: 0
+      z: 4.5
+    radius: 0.5
   - center:
-      x: -4.2000003
-      y: 1.3999996
-      z: -4.9
-    radius: 0.7
+      x: -5
+      y: 0
+      z: 5
+    radius: 0.5
   - center:
-      x: -4.2000003
-      y: 1.3999996
-      z: -4.2000003
-    radius: 0.7
+      x: -4.5
+      y: 0
+      z: -5
+    radius: 0.5
   - center:
-      x: -4.2000003
-      y: 1.3999996
-      z: -3.5000002
-    radius: 0.7
+      x: -4.5
+      y: 0
+      z: -4.5
+    radius: 0.5
   - center:
-      x: -4.2000003
-      y: 1.3999977
-      z: -2.8000002
-    radius: 0.7
+      x: -4.5
+      y: 0
+      z: -4
+    radius: 0.5
   - center:
-      x: -4.2000003
-      y: 1.3999977
-      z: -2.1000001
-    radius: 0.7
+      x: -4.5
+      y: 0
+      z: -3.5
+    radius: 0.5
   - center:
-      x: -4.2000003
-      y: 1.3999977
-      z: -1.4000001
-    radius: 0.7
+      x: -4.5
+      y: 0
+      z: -3
+    radius: 0.5
   - center:
-      x: -4.2000003
-      y: 1.3999977
-      z: -0.7000002
-    radius: 0.7
+      x: -4.5
+      y: -0.0000019073486
+      z: -2.5
+    radius: 0.5
   - center:
-      x: -4.2000003
-      y: 1.3999996
+      x: -4.5
+      y: -0.0000019073486
+      z: -1.9999999
+    radius: 0.5
+  - center:
+      x: -4.5
+      y: -0.0000019073486
+      z: -1.5
+    radius: 0.5
+  - center:
+      x: -4.5
+      y: -0.0000019073486
+      z: -0.99999994
+    radius: 0.5
+  - center:
+      x: -4.5
+      y: -0.0000019073486
+      z: -0.5000001
+    radius: 0.5
+  - center:
+      x: -4.5
+      y: 0
       z: 0
-    radius: 0.7
+    radius: 0.5
   - center:
-      x: -4.2000003
-      y: 1.3999996
-      z: 0.6999999
-    radius: 0.7
+      x: -4.5
+      y: 0
+      z: 0.5000001
+    radius: 0.5
   - center:
-      x: -4.2000003
-      y: 1.3999996
-      z: 1.3999999
-    radius: 0.7
+      x: -4.5
+      y: 0
+      z: 1.0000002
+    radius: 0.5
   - center:
-      x: -4.2000003
-      y: 1.3999977
-      z: 2.1
-    radius: 0.7
+      x: -4.5
+      y: 0
+      z: 1.4999998
+    radius: 0.5
   - center:
-      x: -4.2000003
-      y: 1.3999977
-      z: 2.7999997
-    radius: 0.7
+      x: -4.5
+      y: 0
+      z: 1.9999999
+    radius: 0.5
   - center:
-      x: -4.2000003
-      y: 1.3999996
+      x: -4.5
+      y: -0.0000019073486
+      z: 2.5
+    radius: 0.5
+  - center:
+      x: -4.5
+      y: 0
+      z: 3
+    radius: 0.5
+  - center:
+      x: -4.5
+      y: 0
       z: 3.5000002
-    radius: 0.7
+    radius: 0.5
   - center:
-      x: -4.2000003
-      y: 1.3999996
-      z: 4.199999
-    radius: 0.7
+      x: -4.5
+      y: 0
+      z: 3.9999998
+    radius: 0.5
   - center:
-      x: -4.2000003
-      y: 1.3999996
-      z: 4.8999996
-    radius: 0.7
+      x: -4.5
+      y: 0
+      z: 4.5
+    radius: 0.5
   - center:
-      x: -3.5000002
-      y: 1.3999996
-      z: -4.9
-    radius: 0.7
+      x: -4.5
+      y: 0
+      z: 5
+    radius: 0.5
   - center:
-      x: -3.5000002
-      y: 1.3999996
-      z: -4.2000003
-    radius: 0.7
+      x: -4
+      y: 0
+      z: -5
+    radius: 0.5
   - center:
-      x: -3.5000002
-      y: 1.3999996
-      z: -3.5000002
-    radius: 0.7
+      x: -4
+      y: 0
+      z: -4.5
+    radius: 0.5
   - center:
-      x: -3.5000002
-      y: 1.3999996
-      z: -2.8000002
-    radius: 0.7
+      x: -4
+      y: 0
+      z: -4
+    radius: 0.5
   - center:
-      x: -3.5000002
-      y: 1.3999996
-      z: -2.1000001
-    radius: 0.7
+      x: -4
+      y: 0
+      z: -3.5
+    radius: 0.5
   - center:
-      x: -3.5000002
-      y: 1.3999996
-      z: -1.4000001
-    radius: 0.7
+      x: -4
+      y: 0
+      z: -3
+    radius: 0.5
   - center:
-      x: -3.5000002
-      y: 1.3999996
-      z: -0.7000002
-    radius: 0.7
+      x: -4
+      y: 0
+      z: -2.5
+    radius: 0.5
   - center:
-      x: -3.5000002
-      y: 1.3999996
+      x: -4
+      y: 0
+      z: -1.9999999
+    radius: 0.5
+  - center:
+      x: -4
+      y: 0
+      z: -1.5
+    radius: 0.5
+  - center:
+      x: -4
+      y: 0
+      z: -0.99999994
+    radius: 0.5
+  - center:
+      x: -4
+      y: 0
+      z: -0.5000001
+    radius: 0.5
+  - center:
+      x: -4
+      y: 0
       z: 0
-    radius: 0.7
+    radius: 0.5
   - center:
-      x: -3.5000002
-      y: 1.3999996
-      z: 0.6999999
-    radius: 0.7
+      x: -4
+      y: 0
+      z: 0.5000001
+    radius: 0.5
   - center:
-      x: -3.5000002
-      y: 1.4000015
-      z: 1.3999999
-    radius: 0.7
+      x: -4
+      y: 0.0000019073486
+      z: 1.0000002
+    radius: 0.5
   - center:
-      x: -3.5000002
-      y: 1.3999996
-      z: 2.1
-    radius: 0.7
+      x: -4
+      y: 0.0000019073486
+      z: 1.4999998
+    radius: 0.5
   - center:
-      x: -3.5000002
-      y: 1.3999996
-      z: 2.7999997
-    radius: 0.7
+      x: -4
+      y: 0.0000019073486
+      z: 1.9999999
+    radius: 0.5
   - center:
-      x: -3.5000002
-      y: 1.4000015
+      x: -4
+      y: 0
+      z: 2.5
+    radius: 0.5
+  - center:
+      x: -4
+      y: 0.0000019073486
+      z: 3
+    radius: 0.5
+  - center:
+      x: -4
+      y: 0.0000019073486
       z: 3.5000002
-    radius: 0.7
+    radius: 0.5
   - center:
-      x: -3.5000002
-      y: 1.3999996
-      z: 4.199999
-    radius: 0.7
+      x: -4
+      y: 0.0000019073486
+      z: 3.9999998
+    radius: 0.5
   - center:
-      x: -3.5000002
-      y: 1.3999996
-      z: 4.8999996
-    radius: 0.7
+      x: -4
+      y: 0
+      z: 4.5
+    radius: 0.5
   - center:
-      x: -2.8000002
-      y: 1.3999996
-      z: -4.9
-    radius: 0.7
+      x: -4
+      y: 0
+      z: 5
+    radius: 0.5
   - center:
-      x: -2.8000002
-      y: 1.3999996
-      z: -4.2000003
-    radius: 0.7
+      x: -3.5
+      y: 0
+      z: -5
+    radius: 0.5
   - center:
-      x: -2.8000002
-      y: 1.3999996
-      z: -3.5000002
-    radius: 0.7
+      x: -3.5
+      y: 0
+      z: -4.5
+    radius: 0.5
   - center:
-      x: -2.8000002
-      y: 1.3999977
-      z: -2.8000002
-    radius: 0.7
+      x: -3.5
+      y: 0
+      z: -4
+    radius: 0.5
   - center:
-      x: -2.8000002
-      y: 1.3999977
-      z: -2.1000001
-    radius: 0.7
+      x: -3.5
+      y: 0
+      z: -3.5
+    radius: 0.5
   - center:
-      x: -2.8000002
-      y: 1.3999977
-      z: -1.4000001
-    radius: 0.7
+      x: -3.5
+      y: 0
+      z: -3
+    radius: 0.5
   - center:
-      x: -2.8000002
-      y: 1.3999977
-      z: -0.7000002
-    radius: 0.7
+      x: -3.5
+      y: 0
+      z: -2.5
+    radius: 0.5
   - center:
-      x: -2.8000002
-      y: 1.3999996
+      x: -3.5
+      y: 0
+      z: -1.9999999
+    radius: 0.5
+  - center:
+      x: -3.5
+      y: 0
+      z: -1.5
+    radius: 0.5
+  - center:
+      x: -3.5
+      y: 0
+      z: -0.99999994
+    radius: 0.5
+  - center:
+      x: -3.5
+      y: 0
+      z: -0.5000001
+    radius: 0.5
+  - center:
+      x: -3.5
+      y: 0
       z: 0
-    radius: 0.7
+    radius: 0.5
   - center:
-      x: -2.8000002
-      y: 1.3999996
-      z: 0.6999999
-    radius: 0.7
+      x: -3.5
+      y: 0
+      z: 0.5000001
+    radius: 0.5
   - center:
-      x: -2.8000002
-      y: 1.3999996
-      z: 1.3999999
-    radius: 0.7
+      x: -3.5
+      y: 0.0000019073486
+      z: 1.0000002
+    radius: 0.5
   - center:
-      x: -2.8000002
-      y: 1.3999977
-      z: 2.1
-    radius: 0.7
+      x: -3.5
+      y: 0.0000019073486
+      z: 1.4999998
+    radius: 0.5
   - center:
-      x: -2.8000002
-      y: 1.3999977
-      z: 2.7999997
-    radius: 0.7
+      x: -3.5
+      y: 0.0000019073486
+      z: 1.9999999
+    radius: 0.5
   - center:
-      x: -2.8000002
-      y: 1.3999996
+      x: -3.5
+      y: 0
+      z: 2.5
+    radius: 0.5
+  - center:
+      x: -3.5
+      y: 0.0000019073486
+      z: 3
+    radius: 0.5
+  - center:
+      x: -3.5
+      y: 0.0000019073486
       z: 3.5000002
-    radius: 0.7
+    radius: 0.5
   - center:
-      x: -2.8000002
-      y: 1.3999977
-      z: 4.199999
-    radius: 0.7
+      x: -3.5
+      y: 0.0000019073486
+      z: 3.9999998
+    radius: 0.5
   - center:
-      x: -2.8000002
-      y: 1.3999977
-      z: 4.8999996
-    radius: 0.7
+      x: -3.5
+      y: 0
+      z: 4.5
+    radius: 0.5
   - center:
-      x: -2.1000001
-      y: 1.3999996
-      z: -4.9
-    radius: 0.7
+      x: -3.5
+      y: 0
+      z: 5
+    radius: 0.5
   - center:
-      x: -2.1000001
-      y: 1.3999996
-      z: -4.2000003
-    radius: 0.7
+      x: -3
+      y: 0
+      z: -5
+    radius: 0.5
   - center:
-      x: -2.1000001
-      y: 1.3999996
-      z: -3.5000002
-    radius: 0.7
+      x: -3
+      y: 0
+      z: -4.5
+    radius: 0.5
   - center:
-      x: -2.1000001
-      y: 1.3999977
-      z: -2.8000002
-    radius: 0.7
+      x: -3
+      y: 0
+      z: -4
+    radius: 0.5
   - center:
-      x: -2.1000001
-      y: 1.3999977
-      z: -2.1000001
-    radius: 0.7
+      x: -3
+      y: 0
+      z: -3.5
+    radius: 0.5
   - center:
-      x: -2.1000001
-      y: 1.3999977
-      z: -1.4000001
-    radius: 0.7
+      x: -3
+      y: 0
+      z: -3
+    radius: 0.5
   - center:
-      x: -2.1000001
-      y: 1.3999977
-      z: -0.7000002
-    radius: 0.7
+      x: -3
+      y: 0
+      z: -2.5
+    radius: 0.5
   - center:
-      x: -2.1000001
-      y: 1.3999996
+      x: -3
+      y: 0
+      z: -1.9999999
+    radius: 0.5
+  - center:
+      x: -3
+      y: 0
+      z: -1.5
+    radius: 0.5
+  - center:
+      x: -3
+      y: 0
+      z: -0.99999994
+    radius: 0.5
+  - center:
+      x: -3
+      y: 0
+      z: -0.5000001
+    radius: 0.5
+  - center:
+      x: -3
+      y: 0
       z: 0
-    radius: 0.7
+    radius: 0.5
   - center:
-      x: -2.1000001
-      y: 1.3999996
-      z: 0.6999999
-    radius: 0.7
+      x: -3
+      y: 0
+      z: 0.5000001
+    radius: 0.5
   - center:
-      x: -2.1000001
-      y: 1.3999996
-      z: 1.3999999
-    radius: 0.7
+      x: -3
+      y: 0.0000019073486
+      z: 1.0000002
+    radius: 0.5
   - center:
-      x: -2.1000001
-      y: 1.3999977
-      z: 2.1
-    radius: 0.7
+      x: -3
+      y: 0.0000019073486
+      z: 1.4999998
+    radius: 0.5
   - center:
-      x: -2.1000001
-      y: 1.3999977
-      z: 2.7999997
-    radius: 0.7
+      x: -3
+      y: 0.0000019073486
+      z: 1.9999999
+    radius: 0.5
   - center:
-      x: -2.1000001
-      y: 1.3999996
+      x: -3
+      y: 0
+      z: 2.5
+    radius: 0.5
+  - center:
+      x: -3
+      y: 0.0000019073486
+      z: 3
+    radius: 0.5
+  - center:
+      x: -3
+      y: 0.0000019073486
       z: 3.5000002
-    radius: 0.7
+    radius: 0.5
   - center:
-      x: -2.1000001
-      y: 1.3999977
-      z: 4.199999
-    radius: 0.7
+      x: -3
+      y: 0.0000019073486
+      z: 3.9999998
+    radius: 0.5
   - center:
-      x: -2.1000001
-      y: 1.3999977
-      z: 4.8999996
-    radius: 0.7
+      x: -3
+      y: 0
+      z: 4.5
+    radius: 0.5
   - center:
-      x: -1.4000001
-      y: 1.3999996
-      z: -4.9
-    radius: 0.7
+      x: -3
+      y: 0
+      z: 5
+    radius: 0.5
   - center:
-      x: -1.4000001
-      y: 1.3999996
-      z: -4.2000003
-    radius: 0.7
+      x: -2.5
+      y: 0
+      z: -5
+    radius: 0.5
   - center:
-      x: -1.4000001
-      y: 1.3999996
-      z: -3.5000002
-    radius: 0.7
+      x: -2.5
+      y: 0
+      z: -4.5
+    radius: 0.5
   - center:
-      x: -1.4000001
-      y: 1.3999996
-      z: -2.8000002
-    radius: 0.7
+      x: -2.5
+      y: 0
+      z: -4
+    radius: 0.5
   - center:
-      x: -1.4000001
-      y: 1.3999996
-      z: -2.1000001
-    radius: 0.7
+      x: -2.5
+      y: 0
+      z: -3.5
+    radius: 0.5
   - center:
-      x: -1.4000001
-      y: 1.3999996
-      z: -1.4000001
-    radius: 0.7
+      x: -2.5
+      y: 0
+      z: -3
+    radius: 0.5
   - center:
-      x: -1.4000001
-      y: 1.3999996
-      z: -0.7000002
-    radius: 0.7
+      x: -2.5
+      y: -0.0000019073486
+      z: -2.5
+    radius: 0.5
   - center:
-      x: -1.4000001
-      y: 1.3999996
+      x: -2.5
+      y: -0.0000019073486
+      z: -1.9999999
+    radius: 0.5
+  - center:
+      x: -2.5
+      y: -0.0000019073486
+      z: -1.5
+    radius: 0.5
+  - center:
+      x: -2.5
+      y: -0.0000019073486
+      z: -0.99999994
+    radius: 0.5
+  - center:
+      x: -2.5
+      y: -0.0000019073486
+      z: -0.5000001
+    radius: 0.5
+  - center:
+      x: -2.5
+      y: 0
       z: 0
-    radius: 0.7
+    radius: 0.5
   - center:
-      x: -1.4000001
-      y: 1.3999996
-      z: 0.6999999
-    radius: 0.7
+      x: -2.5
+      y: 0
+      z: 0.5000001
+    radius: 0.5
   - center:
-      x: -1.4000001
-      y: 1.4000015
-      z: 1.3999999
-    radius: 0.7
+      x: -2.5
+      y: 0
+      z: 1.0000002
+    radius: 0.5
   - center:
-      x: -1.4000001
-      y: 1.3999996
-      z: 2.1
-    radius: 0.7
+      x: -2.5
+      y: 0
+      z: 1.4999998
+    radius: 0.5
   - center:
-      x: -1.4000001
-      y: 1.3999996
-      z: 2.7999997
-    radius: 0.7
+      x: -2.5
+      y: 0
+      z: 1.9999999
+    radius: 0.5
   - center:
-      x: -1.4000001
-      y: 1.4000015
+      x: -2.5
+      y: -0.0000019073486
+      z: 2.5
+    radius: 0.5
+  - center:
+      x: -2.5
+      y: 0
+      z: 3
+    radius: 0.5
+  - center:
+      x: -2.5
+      y: 0
       z: 3.5000002
-    radius: 0.7
+    radius: 0.5
   - center:
-      x: -1.4000001
-      y: 1.3999996
-      z: 4.199999
-    radius: 0.7
+      x: -2.5
+      y: 0
+      z: 3.9999998
+    radius: 0.5
   - center:
-      x: -1.4000001
-      y: 1.3999996
-      z: 4.8999996
-    radius: 0.7
+      x: -2.5
+      y: -0.0000019073486
+      z: 4.5
+    radius: 0.5
   - center:
-      x: -0.7000002
-      y: 1.3999996
-      z: -4.9
-    radius: 0.7
+      x: -2.5
+      y: -0.0000019073486
+      z: 5
+    radius: 0.5
   - center:
-      x: -0.7000002
-      y: 1.3999996
-      z: -4.2000003
-    radius: 0.7
+      x: -1.9999999
+      y: 0
+      z: -5
+    radius: 0.5
   - center:
-      x: -0.7000002
-      y: 1.3999996
-      z: -3.5000002
-    radius: 0.7
+      x: -1.9999999
+      y: 0
+      z: -4.5
+    radius: 0.5
   - center:
-      x: -0.7000002
-      y: 1.3999996
-      z: -2.8000002
-    radius: 0.7
+      x: -1.9999999
+      y: 0
+      z: -4
+    radius: 0.5
   - center:
-      x: -0.7000002
-      y: 1.3999996
-      z: -2.1000001
-    radius: 0.7
+      x: -1.9999999
+      y: 0
+      z: -3.5
+    radius: 0.5
   - center:
-      x: -0.7000002
-      y: 1.3999996
-      z: -1.4000001
-    radius: 0.7
+      x: -1.9999999
+      y: 0
+      z: -3
+    radius: 0.5
   - center:
-      x: -0.7000002
-      y: 1.3999996
-      z: -0.7000002
-    radius: 0.7
+      x: -1.9999999
+      y: 0
+      z: -2.5
+    radius: 0.5
   - center:
-      x: -0.7000002
-      y: 1.3999996
+      x: -1.9999999
+      y: 0
+      z: -1.9999999
+    radius: 0.5
+  - center:
+      x: -1.9999999
+      y: -0.0000019073486
+      z: -1.5
+    radius: 0.5
+  - center:
+      x: -1.9999999
+      y: 0
+      z: -0.99999994
+    radius: 0.5
+  - center:
+      x: -1.9999999
+      y: -0.0000019073486
+      z: -0.5000001
+    radius: 0.5
+  - center:
+      x: -1.9999999
+      y: 0
       z: 0
-    radius: 0.7
+    radius: 0.5
   - center:
-      x: -0.7000002
-      y: 1.3999996
-      z: 0.6999999
-    radius: 0.7
+      x: -1.9999999
+      y: 0
+      z: 0.5000001
+    radius: 0.5
   - center:
-      x: -0.7000002
-      y: 1.3999996
-      z: 1.3999999
-    radius: 0.7
+      x: -1.9999999
+      y: 0.0000019073486
+      z: 1.0000002
+    radius: 0.5
   - center:
-      x: -0.7000002
-      y: 1.3999996
-      z: 2.1
-    radius: 0.7
+      x: -1.9999999
+      y: 0.0000019073486
+      z: 1.4999998
+    radius: 0.5
   - center:
-      x: -0.7000002
-      y: 1.3999996
-      z: 2.7999997
-    radius: 0.7
+      x: -1.9999999
+      y: 0.0000019073486
+      z: 1.9999999
+    radius: 0.5
   - center:
-      x: -0.7000002
-      y: 1.3999996
+      x: -1.9999999
+      y: 0
+      z: 2.5
+    radius: 0.5
+  - center:
+      x: -1.9999999
+      y: 0.0000019073486
+      z: 3
+    radius: 0.5
+  - center:
+      x: -1.9999999
+      y: 0.0000019073486
       z: 3.5000002
-    radius: 0.7
+    radius: 0.5
   - center:
-      x: -0.7000002
-      y: 1.3999996
-      z: 4.199999
-    radius: 0.7
+      x: -1.9999999
+      y: 0.0000019073486
+      z: 3.9999998
+    radius: 0.5
   - center:
-      x: -0.7000002
-      y: 1.3999996
-      z: 4.8999996
-    radius: 0.7
+      x: -1.9999999
+      y: 0
+      z: 4.5
+    radius: 0.5
+  - center:
+      x: -1.9999999
+      y: 0
+      z: 5
+    radius: 0.5
+  - center:
+      x: -1.5
+      y: 0
+      z: -5
+    radius: 0.5
+  - center:
+      x: -1.5
+      y: 0
+      z: -4.5
+    radius: 0.5
+  - center:
+      x: -1.5
+      y: 0
+      z: -4
+    radius: 0.5
+  - center:
+      x: -1.5
+      y: 0
+      z: -3.5
+    radius: 0.5
+  - center:
+      x: -1.5
+      y: 0
+      z: -3
+    radius: 0.5
+  - center:
+      x: -1.5
+      y: 0
+      z: -2.5
+    radius: 0.5
+  - center:
+      x: -1.5
+      y: 0
+      z: -1.9999999
+    radius: 0.5
+  - center:
+      x: -1.5
+      y: 0
+      z: -1.5
+    radius: 0.5
+  - center:
+      x: -1.5
+      y: 0
+      z: -0.99999994
+    radius: 0.5
+  - center:
+      x: -1.5
+      y: 0
+      z: -0.5000001
+    radius: 0.5
+  - center:
+      x: -1.5
+      y: 0
+      z: 0
+    radius: 0.5
+  - center:
+      x: -1.5
+      y: 0
+      z: 0.5000001
+    radius: 0.5
+  - center:
+      x: -1.5
+      y: 0.0000019073486
+      z: 1.0000002
+    radius: 0.5
+  - center:
+      x: -1.5
+      y: 0.0000019073486
+      z: 1.4999998
+    radius: 0.5
+  - center:
+      x: -1.5
+      y: 0.0000019073486
+      z: 1.9999999
+    radius: 0.5
+  - center:
+      x: -1.5
+      y: 0
+      z: 2.5
+    radius: 0.5
+  - center:
+      x: -1.5
+      y: 0.0000019073486
+      z: 3
+    radius: 0.5
+  - center:
+      x: -1.5
+      y: 0.0000019073486
+      z: 3.5000002
+    radius: 0.5
+  - center:
+      x: -1.5
+      y: 0.0000019073486
+      z: 3.9999998
+    radius: 0.5
+  - center:
+      x: -1.5
+      y: 0
+      z: 4.5
+    radius: 0.5
+  - center:
+      x: -1.5
+      y: 0
+      z: 5
+    radius: 0.5
+  - center:
+      x: -0.99999994
+      y: 0
+      z: -5
+    radius: 0.5
+  - center:
+      x: -0.99999994
+      y: 0
+      z: -4.5
+    radius: 0.5
+  - center:
+      x: -0.99999994
+      y: 0
+      z: -4
+    radius: 0.5
+  - center:
+      x: -0.99999994
+      y: 0
+      z: -3.5
+    radius: 0.5
+  - center:
+      x: -0.99999994
+      y: 0
+      z: -3
+    radius: 0.5
+  - center:
+      x: -0.99999994
+      y: 0
+      z: -2.5
+    radius: 0.5
+  - center:
+      x: -0.99999994
+      y: 0
+      z: -1.9999999
+    radius: 0.5
+  - center:
+      x: -0.99999994
+      y: 0
+      z: -1.5
+    radius: 0.5
+  - center:
+      x: -0.99999994
+      y: 0
+      z: -0.99999994
+    radius: 0.5
+  - center:
+      x: -0.99999994
+      y: 0
+      z: -0.5000001
+    radius: 0.5
+  - center:
+      x: -0.99999994
+      y: 0
+      z: 0
+    radius: 0.5
+  - center:
+      x: -0.99999994
+      y: 0
+      z: 0.5000001
+    radius: 0.5
+  - center:
+      x: -0.99999994
+      y: 0
+      z: 1.0000002
+    radius: 0.5
+  - center:
+      x: -0.99999994
+      y: 0
+      z: 1.4999998
+    radius: 0.5
+  - center:
+      x: -0.99999994
+      y: 0
+      z: 1.9999999
+    radius: 0.5
+  - center:
+      x: -0.99999994
+      y: 0
+      z: 2.5
+    radius: 0.5
+  - center:
+      x: -0.99999994
+      y: 0
+      z: 3
+    radius: 0.5
+  - center:
+      x: -0.99999994
+      y: 0
+      z: 3.5000002
+    radius: 0.5
+  - center:
+      x: -0.99999994
+      y: 0
+      z: 3.9999998
+    radius: 0.5
+  - center:
+      x: -0.99999994
+      y: 0
+      z: 4.5
+    radius: 0.5
+  - center:
+      x: -0.99999994
+      y: 0
+      z: 5
+    radius: 0.5
+  - center:
+      x: -0.5000001
+      y: 0
+      z: -5
+    radius: 0.5
+  - center:
+      x: -0.5000001
+      y: 0
+      z: -4.5
+    radius: 0.5
+  - center:
+      x: -0.5000001
+      y: 0
+      z: -4
+    radius: 0.5
+  - center:
+      x: -0.5000001
+      y: 0
+      z: -3.5
+    radius: 0.5
+  - center:
+      x: -0.5000001
+      y: 0
+      z: -3
+    radius: 0.5
+  - center:
+      x: -0.5000001
+      y: 0
+      z: -2.5
+    radius: 0.5
+  - center:
+      x: -0.5000001
+      y: 0
+      z: -1.9999999
+    radius: 0.5
+  - center:
+      x: -0.5000001
+      y: 0
+      z: -1.5
+    radius: 0.5
+  - center:
+      x: -0.5000001
+      y: 0
+      z: -0.99999994
+    radius: 0.5
+  - center:
+      x: -0.5000001
+      y: 0
+      z: -0.5000001
+    radius: 0.5
+  - center:
+      x: -0.5000001
+      y: 0
+      z: 0
+    radius: 0.5
+  - center:
+      x: -0.5000001
+      y: 0
+      z: 0.5000001
+    radius: 0.5
+  - center:
+      x: -0.5000001
+      y: 0
+      z: 1.0000002
+    radius: 0.5
+  - center:
+      x: -0.5000001
+      y: 0
+      z: 1.4999998
+    radius: 0.5
+  - center:
+      x: -0.5000001
+      y: 0
+      z: 1.9999999
+    radius: 0.5
+  - center:
+      x: -0.5000001
+      y: 0
+      z: 2.5
+    radius: 0.5
+  - center:
+      x: -0.5000001
+      y: 0
+      z: 3
+    radius: 0.5
+  - center:
+      x: -0.5000001
+      y: 0
+      z: 3.5000002
+    radius: 0.5
+  - center:
+      x: -0.5000001
+      y: 0
+      z: 3.9999998
+    radius: 0.5
+  - center:
+      x: -0.5000001
+      y: 0
+      z: 4.5
+    radius: 0.5
+  - center:
+      x: -0.5000001
+      y: 0
+      z: 5
+    radius: 0.5
   - center:
       x: 0
-      y: 1.3999996
-      z: -4.9
-    radius: 0.7
+      y: 0
+      z: -5
+    radius: 0.5
   - center:
       x: 0
-      y: 1.3999996
-      z: -4.2000003
-    radius: 0.7
+      y: 0
+      z: -4.5
+    radius: 0.5
   - center:
       x: 0
-      y: 1.3999996
-      z: -3.5000002
-    radius: 0.7
+      y: 0
+      z: -4
+    radius: 0.5
   - center:
       x: 0
-      y: 1.3999996
-      z: -2.8000002
-    radius: 0.7
+      y: 0
+      z: -3.5
+    radius: 0.5
   - center:
       x: 0
-      y: 1.3999996
-      z: -2.1000001
-    radius: 0.7
+      y: 0
+      z: -3
+    radius: 0.5
   - center:
       x: 0
-      y: 1.3999996
-      z: -1.4000001
-    radius: 0.7
+      y: 0
+      z: -2.5
+    radius: 0.5
   - center:
       x: 0
-      y: 1.3999996
-      z: -0.7000002
-    radius: 0.7
+      y: 0
+      z: -1.9999999
+    radius: 0.5
   - center:
       x: 0
-      y: 1.3999996
+      y: 0
+      z: -1.5
+    radius: 0.5
+  - center:
+      x: 0
+      y: 0
+      z: -0.99999994
+    radius: 0.5
+  - center:
+      x: 0
+      y: 0
+      z: -0.5000001
+    radius: 0.5
+  - center:
+      x: 0
+      y: 0
       z: 0
-    radius: 0.7
+    radius: 0.5
   - center:
       x: 0
-      y: 1.3999996
-      z: 0.6999999
-    radius: 0.7
+      y: 0
+      z: 0.5000001
+    radius: 0.5
   - center:
       x: 0
-      y: 1.3999996
-      z: 1.3999999
-    radius: 0.7
+      y: 0
+      z: 1.0000002
+    radius: 0.5
   - center:
       x: 0
-      y: 1.3999996
-      z: 2.1
-    radius: 0.7
+      y: 0
+      z: 1.4999998
+    radius: 0.5
   - center:
       x: 0
-      y: 1.3999996
-      z: 2.7999997
-    radius: 0.7
+      y: 0
+      z: 1.9999999
+    radius: 0.5
   - center:
       x: 0
-      y: 1.3999996
-      z: 3.5000002
-    radius: 0.7
+      y: 0
+      z: 2.5
+    radius: 0.5
   - center:
       x: 0
-      y: 1.3999996
-      z: 4.199999
-    radius: 0.7
+      y: 0
+      z: 3
+    radius: 0.5
   - center:
       x: 0
-      y: 1.3999996
-      z: 4.8999996
-    radius: 0.7
-  - center:
-      x: 0.6999999
-      y: 1.3999977
-      z: -4.9
-    radius: 0.7
-  - center:
-      x: 0.6999999
-      y: 1.3999977
-      z: -4.2000003
-    radius: 0.7
-  - center:
-      x: 0.6999999
-      y: 1.3999977
-      z: -3.5000002
-    radius: 0.7
-  - center:
-      x: 0.6999999
-      y: 1.3999977
-      z: -2.8000002
-    radius: 0.7
-  - center:
-      x: 0.6999999
-      y: 1.3999977
-      z: -2.1000001
-    radius: 0.7
-  - center:
-      x: 0.6999999
-      y: 1.3999996
-      z: -1.4000001
-    radius: 0.7
-  - center:
-      x: 0.6999999
-      y: 1.3999996
-      z: -0.7000002
-    radius: 0.7
-  - center:
-      x: 0.6999999
-      y: 1.3999996
-      z: 0
-    radius: 0.7
-  - center:
-      x: 0.6999999
-      y: 1.3999996
-      z: 0.6999999
-    radius: 0.7
-  - center:
-      x: 0.6999999
-      y: 1.3999996
-      z: 1.3999999
-    radius: 0.7
-  - center:
-      x: 0.6999999
-      y: 1.3999977
-      z: 2.1
-    radius: 0.7
-  - center:
-      x: 0.6999999
-      y: 1.3999977
-      z: 2.7999997
-    radius: 0.7
-  - center:
-      x: 0.6999999
-      y: 1.3999996
+      y: 0
       z: 3.5000002
-    radius: 0.7
+    radius: 0.5
   - center:
-      x: 0.6999999
-      y: 1.3999977
-      z: 4.199999
-    radius: 0.7
+      x: 0
+      y: 0
+      z: 3.9999998
+    radius: 0.5
   - center:
-      x: 0.6999999
-      y: 1.3999977
-      z: 4.8999996
-    radius: 0.7
+      x: 0
+      y: 0
+      z: 4.5
+    radius: 0.5
   - center:
-      x: 1.3999999
-      y: 1.3999977
-      z: -4.9
-    radius: 0.7
+      x: 0
+      y: 0
+      z: 5
+    radius: 0.5
   - center:
-      x: 1.3999999
-      y: 1.3999977
-      z: -4.2000003
-    radius: 0.7
+      x: 0.5000001
+      y: -0.0000019073486
+      z: -5
+    radius: 0.5
   - center:
-      x: 1.3999999
-      y: 1.3999977
-      z: -3.5000002
-    radius: 0.7
+      x: 0.5000001
+      y: -0.0000019073486
+      z: -4.5
+    radius: 0.5
   - center:
-      x: 1.3999999
-      y: 1.3999977
-      z: -2.8000002
-    radius: 0.7
+      x: 0.5000001
+      y: -0.0000019073486
+      z: -4
+    radius: 0.5
   - center:
-      x: 1.3999999
-      y: 1.3999977
-      z: -2.1000001
-    radius: 0.7
+      x: 0.5000001
+      y: -0.0000019073486
+      z: -3.5
+    radius: 0.5
   - center:
-      x: 1.3999999
-      y: 1.3999996
-      z: -1.4000001
-    radius: 0.7
+      x: 0.5000001
+      y: -0.0000019073486
+      z: -3
+    radius: 0.5
   - center:
-      x: 1.3999999
-      y: 1.3999996
-      z: -0.7000002
-    radius: 0.7
+      x: 0.5000001
+      y: -0.0000019073486
+      z: -2.5
+    radius: 0.5
   - center:
-      x: 1.3999999
-      y: 1.3999996
+      x: 0.5000001
+      y: 0
+      z: -1.9999999
+    radius: 0.5
+  - center:
+      x: 0.5000001
+      y: 0
+      z: -1.5
+    radius: 0.5
+  - center:
+      x: 0.5000001
+      y: 0
+      z: -0.99999994
+    radius: 0.5
+  - center:
+      x: 0.5000001
+      y: 0
+      z: -0.5000001
+    radius: 0.5
+  - center:
+      x: 0.5000001
+      y: 0
       z: 0
-    radius: 0.7
+    radius: 0.5
   - center:
-      x: 1.3999999
-      y: 1.3999996
-      z: 0.6999999
-    radius: 0.7
+      x: 0.5000001
+      y: 0
+      z: 0.5000001
+    radius: 0.5
   - center:
-      x: 1.3999999
-      y: 1.3999996
-      z: 1.3999999
-    radius: 0.7
+      x: 0.5000001
+      y: 0
+      z: 1.0000002
+    radius: 0.5
   - center:
-      x: 1.3999999
-      y: 1.3999977
-      z: 2.1
-    radius: 0.7
+      x: 0.5000001
+      y: 0
+      z: 1.4999998
+    radius: 0.5
   - center:
-      x: 1.3999999
-      y: 1.3999977
-      z: 2.7999997
-    radius: 0.7
+      x: 0.5000001
+      y: -0.0000019073486
+      z: 1.9999999
+    radius: 0.5
   - center:
-      x: 1.3999999
-      y: 1.3999996
+      x: 0.5000001
+      y: -0.0000019073486
+      z: 2.5
+    radius: 0.5
+  - center:
+      x: 0.5000001
+      y: 0
+      z: 3
+    radius: 0.5
+  - center:
+      x: 0.5000001
+      y: 0
       z: 3.5000002
-    radius: 0.7
+    radius: 0.5
   - center:
-      x: 1.3999999
-      y: 1.3999977
-      z: 4.199999
-    radius: 0.7
+      x: 0.5000001
+      y: 0
+      z: 3.9999998
+    radius: 0.5
   - center:
-      x: 1.3999999
-      y: 1.3999977
-      z: 4.8999996
-    radius: 0.7
+      x: 0.5000001
+      y: -0.0000019073486
+      z: 4.5
+    radius: 0.5
   - center:
-      x: 2.1
-      y: 1.3999996
-      z: -4.9
-    radius: 0.7
+      x: 1.0000002
+      y: -0.0000019073486
+      z: -5
+    radius: 0.5
   - center:
-      x: 2.1
-      y: 1.3999996
-      z: -4.2000003
-    radius: 0.7
+      x: 1.0000002
+      y: -0.0000019073486
+      z: -4.5
+    radius: 0.5
   - center:
-      x: 2.1
-      y: 1.3999996
-      z: -3.5000002
-    radius: 0.7
+      x: 1.0000002
+      y: -0.0000019073486
+      z: -4
+    radius: 0.5
   - center:
-      x: 2.1
-      y: 1.3999977
-      z: -2.8000002
-    radius: 0.7
+      x: 1.0000002
+      y: -0.0000019073486
+      z: -3.5
+    radius: 0.5
   - center:
-      x: 2.1
-      y: 1.3999977
-      z: -2.1000001
-    radius: 0.7
+      x: 1.0000002
+      y: -0.0000019073486
+      z: -3
+    radius: 0.5
   - center:
-      x: 2.1
-      y: 1.3999977
-      z: -1.4000001
-    radius: 0.7
+      x: 1.0000002
+      y: -0.0000019073486
+      z: -2.5
+    radius: 0.5
   - center:
-      x: 2.1
-      y: 1.3999977
-      z: -0.7000002
-    radius: 0.7
+      x: 1.0000002
+      y: 0
+      z: -1.9999999
+    radius: 0.5
   - center:
-      x: 2.1
-      y: 1.3999996
+      x: 1.0000002
+      y: 0
+      z: -1.5
+    radius: 0.5
+  - center:
+      x: 1.0000002
+      y: 0
+      z: -0.99999994
+    radius: 0.5
+  - center:
+      x: 1.0000002
+      y: 0
+      z: -0.5000001
+    radius: 0.5
+  - center:
+      x: 1.0000002
+      y: 0
       z: 0
-    radius: 0.7
+    radius: 0.5
   - center:
-      x: 2.1
-      y: 1.3999996
-      z: 0.6999999
-    radius: 0.7
+      x: 1.0000002
+      y: 0
+      z: 0.5000001
+    radius: 0.5
   - center:
-      x: 2.1
-      y: 1.3999996
-      z: 1.3999999
-    radius: 0.7
+      x: 1.0000002
+      y: 0
+      z: 1.0000002
+    radius: 0.5
   - center:
-      x: 2.1
-      y: 1.3999977
-      z: 2.1
-    radius: 0.7
+      x: 1.0000002
+      y: 0
+      z: 1.4999998
+    radius: 0.5
   - center:
-      x: 2.1
-      y: 1.3999977
-      z: 2.7999997
-    radius: 0.7
+      x: 1.0000002
+      y: -0.0000019073486
+      z: 1.9999999
+    radius: 0.5
   - center:
-      x: 2.1
-      y: 1.3999996
+      x: 1.0000002
+      y: -0.0000019073486
+      z: 2.5
+    radius: 0.5
+  - center:
+      x: 1.0000002
+      y: 0
+      z: 3
+    radius: 0.5
+  - center:
+      x: 1.0000002
+      y: 0
       z: 3.5000002
-    radius: 0.7
+    radius: 0.5
   - center:
-      x: 2.1
-      y: 1.3999977
-      z: 4.199999
-    radius: 0.7
+      x: 1.0000002
+      y: 0
+      z: 3.9999998
+    radius: 0.5
   - center:
-      x: 2.1
-      y: 1.3999977
-      z: 4.8999996
-    radius: 0.7
+      x: 1.0000002
+      y: -0.0000019073486
+      z: 4.5
+    radius: 0.5
   - center:
-      x: 2.7999997
-      y: 1.3999996
-      z: -4.9
-    radius: 0.7
+      x: 1.4999998
+      y: -0.0000019073486
+      z: -5
+    radius: 0.5
   - center:
-      x: 2.7999997
-      y: 1.3999996
-      z: -4.2000003
-    radius: 0.7
+      x: 1.4999998
+      y: -0.0000019073486
+      z: -4.5
+    radius: 0.5
   - center:
-      x: 2.7999997
-      y: 1.3999996
-      z: -3.5000002
-    radius: 0.7
+      x: 1.4999998
+      y: -0.0000019073486
+      z: -4
+    radius: 0.5
   - center:
-      x: 2.7999997
-      y: 1.3999977
-      z: -2.8000002
-    radius: 0.7
+      x: 1.4999998
+      y: -0.0000019073486
+      z: -3.5
+    radius: 0.5
   - center:
-      x: 2.7999997
-      y: 1.3999977
-      z: -2.1000001
-    radius: 0.7
+      x: 1.4999998
+      y: -0.0000019073486
+      z: -3
+    radius: 0.5
   - center:
-      x: 2.7999997
-      y: 1.3999977
-      z: -1.4000001
-    radius: 0.7
+      x: 1.4999998
+      y: -0.0000019073486
+      z: -2.5
+    radius: 0.5
   - center:
-      x: 2.7999997
-      y: 1.3999977
-      z: -0.7000002
-    radius: 0.7
+      x: 1.4999998
+      y: 0
+      z: -1.9999999
+    radius: 0.5
   - center:
-      x: 2.7999997
-      y: 1.3999996
+      x: 1.4999998
+      y: 0
+      z: -1.5
+    radius: 0.5
+  - center:
+      x: 1.4999998
+      y: 0
+      z: -0.99999994
+    radius: 0.5
+  - center:
+      x: 1.4999998
+      y: 0
+      z: -0.5000001
+    radius: 0.5
+  - center:
+      x: 1.4999998
+      y: 0
       z: 0
-    radius: 0.7
+    radius: 0.5
   - center:
-      x: 2.7999997
-      y: 1.3999996
-      z: 0.6999999
-    radius: 0.7
+      x: 1.4999998
+      y: 0
+      z: 0.5000001
+    radius: 0.5
   - center:
-      x: 2.7999997
-      y: 1.3999996
-      z: 1.3999999
-    radius: 0.7
+      x: 1.4999998
+      y: 0
+      z: 1.0000002
+    radius: 0.5
   - center:
-      x: 2.7999997
-      y: 1.3999977
-      z: 2.1
-    radius: 0.7
+      x: 1.4999998
+      y: 0
+      z: 1.4999998
+    radius: 0.5
   - center:
-      x: 2.7999997
-      y: 1.3999977
-      z: 2.7999997
-    radius: 0.7
+      x: 1.4999998
+      y: -0.0000019073486
+      z: 1.9999999
+    radius: 0.5
   - center:
-      x: 2.7999997
-      y: 1.3999996
+      x: 1.4999998
+      y: -0.0000019073486
+      z: 2.5
+    radius: 0.5
+  - center:
+      x: 1.4999998
+      y: 0
+      z: 3
+    radius: 0.5
+  - center:
+      x: 1.4999998
+      y: 0
       z: 3.5000002
-    radius: 0.7
+    radius: 0.5
   - center:
-      x: 2.7999997
-      y: 1.3999977
-      z: 4.199999
-    radius: 0.7
+      x: 1.4999998
+      y: 0
+      z: 3.9999998
+    radius: 0.5
   - center:
-      x: 2.7999997
-      y: 1.3999977
-      z: 4.8999996
-    radius: 0.7
+      x: 1.4999998
+      y: -0.0000019073486
+      z: 4.5
+    radius: 0.5
   - center:
-      x: 3.5000002
-      y: 1.3999996
-      z: -4.9
-    radius: 0.7
+      x: 1.9999999
+      y: 0
+      z: -5
+    radius: 0.5
   - center:
-      x: 3.5000002
-      y: 1.3999996
-      z: -4.2000003
-    radius: 0.7
+      x: 1.9999999
+      y: 0
+      z: -4.5
+    radius: 0.5
   - center:
-      x: 3.5000002
-      y: 1.3999996
-      z: -3.5000002
-    radius: 0.7
+      x: 1.9999999
+      y: 0
+      z: -4
+    radius: 0.5
   - center:
-      x: 3.5000002
-      y: 1.3999996
-      z: -2.8000002
-    radius: 0.7
+      x: 1.9999999
+      y: 0
+      z: -3.5
+    radius: 0.5
   - center:
-      x: 3.5000002
-      y: 1.3999996
-      z: -2.1000001
-    radius: 0.7
+      x: 1.9999999
+      y: 0
+      z: -3
+    radius: 0.5
   - center:
-      x: 3.5000002
-      y: 1.3999977
-      z: -1.4000001
-    radius: 0.7
+      x: 1.9999999
+      y: -0.0000019073486
+      z: -2.5
+    radius: 0.5
   - center:
-      x: 3.5000002
-      y: 1.3999977
-      z: -0.7000002
-    radius: 0.7
+      x: 1.9999999
+      y: 0
+      z: -1.9999999
+    radius: 0.5
   - center:
-      x: 3.5000002
-      y: 1.3999996
+      x: 1.9999999
+      y: 0
+      z: -1.5
+    radius: 0.5
+  - center:
+      x: 1.9999999
+      y: 0
+      z: -0.99999994
+    radius: 0.5
+  - center:
+      x: 1.9999999
+      y: 0
+      z: -0.5000001
+    radius: 0.5
+  - center:
+      x: 1.9999999
+      y: 0
       z: 0
-    radius: 0.7
+    radius: 0.5
   - center:
-      x: 3.5000002
-      y: 1.3999996
-      z: 0.6999999
-    radius: 0.7
+      x: 1.9999999
+      y: 0
+      z: 0.5000001
+    radius: 0.5
   - center:
-      x: 3.5000002
-      y: 1.3999996
-      z: 1.3999999
-    radius: 0.7
+      x: 1.9999999
+      y: 0
+      z: 1.0000002
+    radius: 0.5
   - center:
-      x: 3.5000002
-      y: 1.3999996
-      z: 2.1
-    radius: 0.7
+      x: 1.9999999
+      y: 0
+      z: 1.4999998
+    radius: 0.5
   - center:
-      x: 3.5000002
-      y: 1.3999996
-      z: 2.7999997
-    radius: 0.7
+      x: 1.9999999
+      y: 0
+      z: 1.9999999
+    radius: 0.5
   - center:
-      x: 3.5000002
-      y: 1.3999996
+      x: 1.9999999
+      y: -0.0000019073486
+      z: 2.5
+    radius: 0.5
+  - center:
+      x: 1.9999999
+      y: 0
+      z: 3
+    radius: 0.5
+  - center:
+      x: 1.9999999
+      y: 0
       z: 3.5000002
-    radius: 0.7
+    radius: 0.5
   - center:
-      x: 3.5000002
-      y: 1.3999996
-      z: 4.199999
-    radius: 0.7
+      x: 1.9999999
+      y: 0
+      z: 3.9999998
+    radius: 0.5
   - center:
-      x: 3.5000002
-      y: 1.3999996
-      z: 4.8999996
-    radius: 0.7
+      x: 1.9999999
+      y: -0.0000019073486
+      z: 4.5
+    radius: 0.5
   - center:
-      x: 4.199999
-      y: 1.3999996
-      z: -4.9
-    radius: 0.7
+      x: 1.9999999
+      y: -0.0000019073486
+      z: 5
+    radius: 0.5
   - center:
-      x: 4.199999
-      y: 1.3999996
-      z: -4.2000003
-    radius: 0.7
+      x: 2.5
+      y: 0
+      z: -5
+    radius: 0.5
   - center:
-      x: 4.199999
-      y: 1.3999996
-      z: -3.5000002
-    radius: 0.7
+      x: 2.5
+      y: 0
+      z: -4.5
+    radius: 0.5
   - center:
-      x: 4.199999
-      y: 1.3999996
-      z: -2.8000002
-    radius: 0.7
+      x: 2.5
+      y: 0
+      z: -4
+    radius: 0.5
   - center:
-      x: 4.199999
-      y: 1.3999996
-      z: -2.1000001
-    radius: 0.7
+      x: 2.5
+      y: 0
+      z: -3.5
+    radius: 0.5
   - center:
-      x: 4.199999
-      y: 1.3999977
-      z: -1.4000001
-    radius: 0.7
+      x: 2.5
+      y: 0
+      z: -3
+    radius: 0.5
   - center:
-      x: 4.199999
-      y: 1.3999977
-      z: -0.7000002
-    radius: 0.7
+      x: 2.5
+      y: -0.0000019073486
+      z: -2.5
+    radius: 0.5
   - center:
-      x: 4.199999
-      y: 1.3999996
+      x: 2.5
+      y: -0.0000019073486
+      z: -1.9999999
+    radius: 0.5
+  - center:
+      x: 2.5
+      y: -0.0000019073486
+      z: -1.5
+    radius: 0.5
+  - center:
+      x: 2.5
+      y: -0.0000019073486
+      z: -0.99999994
+    radius: 0.5
+  - center:
+      x: 2.5
+      y: -0.0000019073486
+      z: -0.5000001
+    radius: 0.5
+  - center:
+      x: 2.5
+      y: 0
       z: 0
-    radius: 0.7
+    radius: 0.5
   - center:
-      x: 4.199999
-      y: 1.3999996
-      z: 0.6999999
-    radius: 0.7
+      x: 2.5
+      y: 0
+      z: 0.5000001
+    radius: 0.5
   - center:
-      x: 4.199999
-      y: 1.3999996
-      z: 1.3999999
-    radius: 0.7
+      x: 2.5
+      y: 0
+      z: 1.0000002
+    radius: 0.5
   - center:
-      x: 4.199999
-      y: 1.3999996
-      z: 2.1
-    radius: 0.7
+      x: 2.5
+      y: 0
+      z: 1.4999998
+    radius: 0.5
   - center:
-      x: 4.199999
-      y: 1.3999996
-      z: 2.7999997
-    radius: 0.7
+      x: 2.5
+      y: 0
+      z: 1.9999999
+    radius: 0.5
   - center:
-      x: 4.199999
-      y: 1.3999996
+      x: 2.5
+      y: -0.0000019073486
+      z: 2.5
+    radius: 0.5
+  - center:
+      x: 2.5
+      y: 0
+      z: 3
+    radius: 0.5
+  - center:
+      x: 2.5
+      y: 0
       z: 3.5000002
-    radius: 0.7
+    radius: 0.5
   - center:
-      x: 4.199999
-      y: 1.3999996
-      z: 4.199999
-    radius: 0.7
+      x: 2.5
+      y: 0
+      z: 3.9999998
+    radius: 0.5
   - center:
-      x: 4.199999
-      y: 1.3999996
-      z: 4.8999996
-    radius: 0.7
+      x: 2.5
+      y: -0.0000019073486
+      z: 4.5
+    radius: 0.5
   - center:
-      x: 4.8999996
-      y: 1.3999996
-      z: -4.9
-    radius: 0.7
+      x: 2.5
+      y: -0.0000019073486
+      z: 5
+    radius: 0.5
   - center:
-      x: 4.8999996
-      y: 1.3999996
-      z: -4.2000003
-    radius: 0.7
+      x: 3
+      y: 0
+      z: -5
+    radius: 0.5
   - center:
-      x: 4.8999996
-      y: 1.3999996
-      z: -3.5000002
-    radius: 0.7
+      x: 3
+      y: 0
+      z: -4.5
+    radius: 0.5
   - center:
-      x: 4.8999996
-      y: 1.3999996
-      z: -2.8000002
-    radius: 0.7
+      x: 3
+      y: 0
+      z: -4
+    radius: 0.5
   - center:
-      x: 4.8999996
-      y: 1.3999996
-      z: -2.1000001
-    radius: 0.7
+      x: 3
+      y: 0
+      z: -3.5
+    radius: 0.5
   - center:
-      x: 4.8999996
-      y: 1.3999977
-      z: -1.4000001
-    radius: 0.7
+      x: 3
+      y: 0
+      z: -3
+    radius: 0.5
   - center:
-      x: 4.8999996
-      y: 1.3999977
-      z: -0.7000002
-    radius: 0.7
+      x: 3
+      y: 0
+      z: -2.5
+    radius: 0.5
   - center:
-      x: 4.8999996
-      y: 1.3999996
+      x: 3
+      y: 0
+      z: -1.9999999
+    radius: 0.5
+  - center:
+      x: 3
+      y: -0.0000019073486
+      z: -1.5
+    radius: 0.5
+  - center:
+      x: 3
+      y: -0.0000019073486
+      z: -0.99999994
+    radius: 0.5
+  - center:
+      x: 3
+      y: -0.0000019073486
+      z: -0.5000001
+    radius: 0.5
+  - center:
+      x: 3
+      y: 0
       z: 0
-    radius: 0.7
+    radius: 0.5
   - center:
-      x: 4.8999996
-      y: 1.3999996
-      z: 0.6999999
-    radius: 0.7
+      x: 3
+      y: 0
+      z: 0.5000001
+    radius: 0.5
   - center:
-      x: 4.8999996
-      y: 1.3999996
-      z: 1.3999999
-    radius: 0.7
+      x: 3
+      y: 0
+      z: 1.0000002
+    radius: 0.5
   - center:
-      x: 4.8999996
-      y: 1.3999996
-      z: 2.1
-    radius: 0.7
+      x: 3
+      y: 0
+      z: 1.4999998
+    radius: 0.5
   - center:
-      x: 4.8999996
-      y: 1.3999996
-      z: 2.7999997
-    radius: 0.7
+      x: 3
+      y: 0
+      z: 1.9999999
+    radius: 0.5
   - center:
-      x: 4.8999996
-      y: 1.3999996
+      x: 3
+      y: 0
+      z: 2.5
+    radius: 0.5
+  - center:
+      x: 3
+      y: 0
+      z: 3
+    radius: 0.5
+  - center:
+      x: 3
+      y: 0
       z: 3.5000002
-    radius: 0.7
+    radius: 0.5
   - center:
-      x: 4.8999996
-      y: 1.3999996
-      z: 4.199999
-    radius: 0.7
+      x: 3
+      y: 0
+      z: 3.9999998
+    radius: 0.5
   - center:
-      x: 4.8999996
-      y: 1.3999996
-      z: 4.8999996
-    radius: 0.7
+      x: 3
+      y: 0
+      z: 4.5
+    radius: 0.5
+  - center:
+      x: 3
+      y: 0
+      z: 5
+    radius: 0.5
+  - center:
+      x: 3.5000002
+      y: 0
+      z: -5
+    radius: 0.5
+  - center:
+      x: 3.5000002
+      y: 0
+      z: -4.5
+    radius: 0.5
+  - center:
+      x: 3.5000002
+      y: 0
+      z: -4
+    radius: 0.5
+  - center:
+      x: 3.5000002
+      y: 0
+      z: -3.5
+    radius: 0.5
+  - center:
+      x: 3.5000002
+      y: 0
+      z: -3
+    radius: 0.5
+  - center:
+      x: 3.5000002
+      y: 0
+      z: -2.5
+    radius: 0.5
+  - center:
+      x: 3.5000002
+      y: 0
+      z: -1.9999999
+    radius: 0.5
+  - center:
+      x: 3.5000002
+      y: -0.0000019073486
+      z: -1.5
+    radius: 0.5
+  - center:
+      x: 3.5000002
+      y: -0.0000019073486
+      z: -0.99999994
+    radius: 0.5
+  - center:
+      x: 3.5000002
+      y: -0.0000019073486
+      z: -0.5000001
+    radius: 0.5
+  - center:
+      x: 3.5000002
+      y: 0
+      z: 0
+    radius: 0.5
+  - center:
+      x: 3.5000002
+      y: 0
+      z: 0.5000001
+    radius: 0.5
+  - center:
+      x: 3.5000002
+      y: 0
+      z: 1.0000002
+    radius: 0.5
+  - center:
+      x: 3.5000002
+      y: 0
+      z: 1.4999998
+    radius: 0.5
+  - center:
+      x: 3.5000002
+      y: 0
+      z: 1.9999999
+    radius: 0.5
+  - center:
+      x: 3.5000002
+      y: 0
+      z: 2.5
+    radius: 0.5
+  - center:
+      x: 3.5000002
+      y: 0
+      z: 3
+    radius: 0.5
+  - center:
+      x: 3.5000002
+      y: 0
+      z: 3.5000002
+    radius: 0.5
+  - center:
+      x: 3.5000002
+      y: 0
+      z: 3.9999998
+    radius: 0.5
+  - center:
+      x: 3.5000002
+      y: 0
+      z: 4.5
+    radius: 0.5
+  - center:
+      x: 3.5000002
+      y: 0
+      z: 5
+    radius: 0.5
+  - center:
+      x: 3.9999998
+      y: 0
+      z: -5
+    radius: 0.5
+  - center:
+      x: 3.9999998
+      y: 0
+      z: -4.5
+    radius: 0.5
+  - center:
+      x: 3.9999998
+      y: 0
+      z: -4
+    radius: 0.5
+  - center:
+      x: 3.9999998
+      y: 0
+      z: -3.5
+    radius: 0.5
+  - center:
+      x: 3.9999998
+      y: 0
+      z: -3
+    radius: 0.5
+  - center:
+      x: 3.9999998
+      y: 0
+      z: -2.5
+    radius: 0.5
+  - center:
+      x: 3.9999998
+      y: 0
+      z: -1.9999999
+    radius: 0.5
+  - center:
+      x: 3.9999998
+      y: -0.0000019073486
+      z: -1.5
+    radius: 0.5
+  - center:
+      x: 3.9999998
+      y: -0.0000019073486
+      z: -0.99999994
+    radius: 0.5
+  - center:
+      x: 3.9999998
+      y: -0.0000019073486
+      z: -0.5000001
+    radius: 0.5
+  - center:
+      x: 3.9999998
+      y: 0
+      z: 0
+    radius: 0.5
+  - center:
+      x: 3.9999998
+      y: 0
+      z: 0.5000001
+    radius: 0.5
+  - center:
+      x: 3.9999998
+      y: 0
+      z: 1.0000002
+    radius: 0.5
+  - center:
+      x: 3.9999998
+      y: 0
+      z: 1.4999998
+    radius: 0.5
+  - center:
+      x: 3.9999998
+      y: 0
+      z: 1.9999999
+    radius: 0.5
+  - center:
+      x: 3.9999998
+      y: 0
+      z: 2.5
+    radius: 0.5
+  - center:
+      x: 3.9999998
+      y: 0
+      z: 3
+    radius: 0.5
+  - center:
+      x: 3.9999998
+      y: 0
+      z: 3.5000002
+    radius: 0.5
+  - center:
+      x: 3.9999998
+      y: 0
+      z: 3.9999998
+    radius: 0.5
+  - center:
+      x: 3.9999998
+      y: 0
+      z: 4.5
+    radius: 0.5
+  - center:
+      x: 3.9999998
+      y: 0
+      z: 5
+    radius: 0.5
+  - center:
+      x: 4.5
+      y: 0
+      z: -5
+    radius: 0.5
+  - center:
+      x: 4.5
+      y: 0
+      z: -4.5
+    radius: 0.5
+  - center:
+      x: 4.5
+      y: 0
+      z: -4
+    radius: 0.5
+  - center:
+      x: 4.5
+      y: 0
+      z: -3.5
+    radius: 0.5
+  - center:
+      x: 4.5
+      y: 0
+      z: -3
+    radius: 0.5
+  - center:
+      x: 4.5
+      y: 0
+      z: -2.5
+    radius: 0.5
+  - center:
+      x: 4.5
+      y: 0
+      z: -1.9999999
+    radius: 0.5
+  - center:
+      x: 4.5
+      y: -0.0000019073486
+      z: -1.5
+    radius: 0.5
+  - center:
+      x: 4.5
+      y: -0.0000019073486
+      z: -0.99999994
+    radius: 0.5
+  - center:
+      x: 4.5
+      y: -0.0000019073486
+      z: -0.5000001
+    radius: 0.5
+  - center:
+      x: 4.5
+      y: 0
+      z: 0
+    radius: 0.5
+  - center:
+      x: 4.5
+      y: 0
+      z: 0.5000001
+    radius: 0.5
+  - center:
+      x: 4.5
+      y: 0
+      z: 1.0000002
+    radius: 0.5
+  - center:
+      x: 4.5
+      y: 0
+      z: 1.4999998
+    radius: 0.5
+  - center:
+      x: 4.5
+      y: 0
+      z: 1.9999999
+    radius: 0.5
+  - center:
+      x: 4.5
+      y: 0
+      z: 2.5
+    radius: 0.5
+  - center:
+      x: 4.5
+      y: 0
+      z: 3
+    radius: 0.5
+  - center:
+      x: 4.5
+      y: 0
+      z: 3.5000002
+    radius: 0.5
+  - center:
+      x: 4.5
+      y: 0
+      z: 3.9999998
+    radius: 0.5
+  - center:
+      x: 4.5
+      y: 0
+      z: 4.5
+    radius: 0.5
+  - center:
+      x: 4.5
+      y: 0
+      z: 5
+    radius: 0.5
+  - center:
+      x: 5
+      y: 0
+      z: -5
+    radius: 0.5
+  - center:
+      x: 5
+      y: 0
+      z: -4.5
+    radius: 0.5
+  - center:
+      x: 5
+      y: 0
+      z: -4
+    radius: 0.5
+  - center:
+      x: 5
+      y: 0
+      z: -3.5
+    radius: 0.5
+  - center:
+      x: 5
+      y: 0
+      z: -3
+    radius: 0.5
+  - center:
+      x: 5
+      y: 0
+      z: -2.5
+    radius: 0.5
+  - center:
+      x: 5
+      y: 0
+      z: -1.9999999
+    radius: 0.5
+  - center:
+      x: 5
+      y: -0.0000019073486
+      z: -1.5
+    radius: 0.5
+  - center:
+      x: 5
+      y: -0.0000019073486
+      z: -0.99999994
+    radius: 0.5
+  - center:
+      x: 5
+      y: -0.0000019073486
+      z: -0.5000001
+    radius: 0.5
+  - center:
+      x: 5
+      y: 0
+      z: 0
+    radius: 0.5
+  - center:
+      x: 5
+      y: 0
+      z: 0.5000001
+    radius: 0.5
+  - center:
+      x: 5
+      y: 0
+      z: 1.0000002
+    radius: 0.5
+  - center:
+      x: 5
+      y: 0
+      z: 1.4999998
+    radius: 0.5
+  - center:
+      x: 5
+      y: 0
+      z: 1.9999999
+    radius: 0.5
+  - center:
+      x: 5
+      y: 0
+      z: 2.5
+    radius: 0.5
+  - center:
+      x: 5
+      y: 0
+      z: 3
+    radius: 0.5
+  - center:
+      x: 5
+      y: 0
+      z: 3.5000002
+    radius: 0.5
+  - center:
+      x: 5
+      y: 0
+      z: 3.9999998
+    radius: 0.5
+  - center:
+      x: 5
+      y: 0
+      z: 4.5
+    radius: 0.5
+  - center:
+      x: 5
+      y: 0
+      z: 5
+    radius: 0.5
   mBakedDataLayerInfo:
   - gameObject: {fileID: 1103913328}
     identifier:
@@ -3650,7 +4705,7 @@ MonoBehaviour:
           y: 0
           z: 0
         radius: 0
-    dataSize: 321296
+    dataSize: 1190240
   - gameObject: {fileID: 1830449407}
     identifier:
       type: 0
@@ -3658,21 +4713,21 @@ MonoBehaviour:
       endpointInfluence:
         center:
           x: 0
-          y: 1
+          y: 0
           z: -0
-        radius: 7
-    dataSize: 1082252
+        radius: 5
+    dataSize: 1524891
   - gameObject: {fileID: 821062232}
     identifier:
       type: 0
       variation: 2
       endpointInfluence:
         center:
-          x: -0.055000007
-          y: 1.326
-          z: -2.199
-        radius: 7
-    dataSize: 952409
+          x: 0
+          y: 0.163
+          z: -2
+        radius: 5
+    dataSize: 1298868
   - gameObject: {fileID: 821062232}
     identifier:
       type: 0
@@ -3683,7 +4738,7 @@ MonoBehaviour:
           y: 0
           z: 0
         radius: 0
-    dataSize: 1082252
+    dataSize: 2097162
 --- !u!4 &1103913330
 Transform:
   m_ObjectHideFlags: 0
@@ -4542,21 +5597,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ea378497d2d9e847898c57b9eb3fb94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  influenceRadius: 7
+  influenceRadius: 5
   useAllProbeBatches: 1
   probeBatches:
   - {fileID: 0}
-  mTotalDataSize: 1082252
-  mProbeDataSizes: 8c831000
+  mTotalDataSize: 1524891
+  mProbeDataSizes: 9b441700
   mIdentifier:
     type: 0
     variation: 1
     endpointInfluence:
       center:
         x: 0
-        y: 1
+        y: 0
         z: -0
-      radius: 7
+      radius: 5
   mProbeBatchesUsed:
   - {fileID: 1103913329}
 --- !u!114 &1830449413
@@ -4587,7 +5642,7 @@ MonoBehaviour:
   dipoleWeight: 0
   dipolePower: 0
   directivityValue: 1
-  occlusion: 1
+  occlusion: 0
   occlusionInput: 0
   occlusionType: 0
   occlusionRadius: 1
@@ -4651,16 +5706,16 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 224b410e886437f4bb4d18557908157d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 270473ae1dcd8b948929fbcd431ebd6a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 1
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 0.5
   MaxDistance: 7
   Pan2D: 0
@@ -4817,7 +5872,7 @@ Transform:
   m_GameObject: {fileID: 1830449407}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4927,7 +5982,7 @@ Transform:
   m_GameObject: {fileID: 2083394862}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.305, y: 1.163, z: 2.949}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
