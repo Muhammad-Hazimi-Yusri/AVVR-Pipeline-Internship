@@ -32,13 +32,13 @@ MonoBehaviour:
   realTimeCPUCoresPercentage: 5
   realTimeIrradianceMinDistance: 1
   bakeConvolution: 1
-  bakeParametric: 0
-  bakingRays: 65536
-  bakingBounces: 64
-  bakingDuration: 10
-  bakingAmbisonicOrder: 3
+  bakeParametric: 1
+  bakingRays: 16384
+  bakingBounces: 16
+  bakingDuration: 1
+  bakingAmbisonicOrder: 1
   bakingCPUCoresPercentage: 100
-  bakingIrradianceMinDistance: 10
+  bakingIrradianceMinDistance: 0.1
   bakingVisibilitySamples: 4
   bakingVisibilityRadius: 1
   bakingVisibilityThreshold: 0.1
@@ -46,12 +46,12 @@ MonoBehaviour:
   bakingPathRange: 1000
   bakedPathingCPUCoresPercentage: 50
   simulationUpdateInterval: 0.1
-  reflectionEffectType: 3
+  reflectionEffectType: 0
   hybridReverbTransitionTime: 1
   hybridReverbOverlapPercent: 25
   deviceType: 0
-  maxReservedComputeUnits: 16
-  fractionComputeUnitsForIRUpdate: 1
+  maxReservedComputeUnits: 0
+  fractionComputeUnitsForIRUpdate: 0.5
   bakingBatchSize: 16
   TANDuration: 10
   TANAmbisonicOrder: 3
