@@ -7,16 +7,19 @@ This project aims to reconstruct 3D geometry and acoustic properties of environm
 The repository is structured as follows:
 
 - `360monodepth/`: Submodule for monocular 360° depth estimation (Docker-based)
+- `Atiyeh-RIR-evaluation-Matlab`: Matlab related scripts for audio analysis
 - `AVVR-Papers/`: Related research papers
-- `Intern-logs/`: Weekly logs from internship work
+- `edgenet360/`: Submodule for mesh generation (WSL-based)
+  - `Output/`: Directory for generated meshes in .obj format
+- `Intern-logs/`: Weekly logs from internship work including AudioResult excel
+- `material_recognition/`: Submodule for material recognition using Dynamic Backward Attention Transformer
+- `RIR_Analysis`: Python notebook for sine sweep and deconvolution by Mona
+- `scripts/`: Automation and integration scripts
+  - `GUI.py`: Main script to be run after following the setup instructions
 - `Unity/`: 
   - `AV-VR/`: Main Unity project folder, extending GDP work
   - `S3A/`: Dr. Hansung's original Unity project for reference (Steam Audio integration, sound source positioning)
-- `edgenet360/`: Submodule for mesh generation (WSL-based)
-  - `Output/`: Directory for generated meshes in .obj format
-- `material_recognition/`: Submodule for material recognition using Dynamic Backward Attention Transformer
-- `scripts/`: Automation and integration scripts
-  - `GUI.py`: Main script to be run after following the setup instructions
+
 
 ## Key Files
 
@@ -58,9 +61,9 @@ For more information on the foundational work, please visit:
 
 ## Future Work
 
+- Enhance monodepth depth image to fit better with EdgeNet360
 - Remove unnecessary files to reduce git repository size
 - Export the whole pipeline into a single executable file without need for prerequisite and setups (ambitious goal)
-- TBD
 
 ## License
 
