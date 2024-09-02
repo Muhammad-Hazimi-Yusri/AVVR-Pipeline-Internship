@@ -38,7 +38,8 @@ The repository is structured as follows:
 
 Please follow the instructions in the Manual.pdf regarding prerequisites for the ML pipeline and VR rendering using Unity. Detailed setup steps and requirements are provided to ensure smooth operation of the project components.
 
-Note there are hardcoded directory in certain scripts that need to be changed to reflect your work directory, in the future, this would only be one file, but to be safe, please use find and replace all function in your favourite code editor.
+Note there are hardcoded directory in certain scripts that need to be changed to reflect your work directory, in the future, this would only be one file, but to be safe, please use find and replace all directory instances in your favourite code editor.
+
 ## Contributing
 
 To contribute to this project:
