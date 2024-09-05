@@ -34,6 +34,10 @@ The repository is structured as follows:
 
 ![image](Images/Pipeline-Overview.png)
 
+## Video Demonstration
+
+[KT and ST scene demo](https://youtu.be/CDhq749k1hQ)
+
 ## Getting Started
 
 Please follow the instructions in the Manual.pdf regarding prerequisites for the ML pipeline and VR rendering using Unity. Detailed setup steps and requirements are provided to ensure smooth operation of the project components.
