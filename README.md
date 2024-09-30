@@ -30,6 +30,7 @@ The repository is structured as follows:
 - `GanttChart`: Work plan and daily log summary
 - `LICENSE`: Project license information
 - `Manual.docx` / `Manual.pdf`: User manual provided by the GDP group
+- `Intern-logs/Internship-Report.pdf`: 10-week internship technical report
 
 ## Pipeline Overview
 
