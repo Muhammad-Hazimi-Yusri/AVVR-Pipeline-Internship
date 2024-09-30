@@ -42,6 +42,12 @@ The repository is structured as follows:
 
 ## Getting Started
 
+Clone the project repo, and run 
+```cmd
+git submodule update --init --recursive
+```
+to update all the submodules folder to latest (--init for first time)
+
 Please follow the instructions in the Manual.pdf regarding prerequisites for the ML pipeline and VR rendering using Unity. Detailed setup steps and requirements are provided to ensure smooth operation of the project components.
 
 Note there are hardcoded directory in certain scripts that need to be changed to reflect your work directory, in the future, this would only be one file, but to be safe, please use find and replace all directory instances in your favourite code editor.
