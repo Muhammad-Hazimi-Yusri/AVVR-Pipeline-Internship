@@ -12,6 +12,7 @@ The repository is structured as follows:
 - `edgenet360/`: Submodule for mesh generation (WSL-based)
   - `Output/`: Directory for generated meshes in .obj format
 - `Intern-logs/`: Weekly logs from internship work including AudioResult excel
+  - `Internship-Report.pdf`: 10-week internship technical report
 - `material_recognition/`: Submodule for material recognition using Dynamic Backward Attention Transformer
 - `RIR_Analysis`: Python notebook for sine sweep and deconvolution by Mona
 - `scripts/`: Automation and integration scripts
